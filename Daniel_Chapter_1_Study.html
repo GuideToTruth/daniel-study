@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daniel Chapter 1 – Bible Study</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8d08a;
+    --dark: #1a1208;
+    --parchment: #f5eedc;
+    --parchment-dark: #ede0c2;
+    --ink: #2c1f0a;
+    --accent-red: #8b2c2c;
+    --accent-blue: #1e3a5f;
+    --mid: #5a3e1b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 300;
+    line-height: 1.85;
+    font-size: 17px;
+  }
+
+  /* ---- HEADER ---- */
+  .header {
+    background: linear-gradient(160deg, #1a1208 60%, #3b2608);
+    color: var(--gold-light);
+    padding: 56px 24px 44px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+  .header-tag {
+    font-family: 'Source Serif 4', serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    opacity: 0.9;
+  }
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 7vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+  }
+  .header h2 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.1rem, 3.5vw, 1.6rem);
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .header-verse {
+    font-style: italic;
+    font-size: 0.95rem;
+    color: #d4b876;
+    max-width: 560px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(201,168,76,0.3);
+    padding-top: 16px;
+  }
+
+  /* ---- MAIN LAYOUT ---- */
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  /* ---- INTRO BOX ---- */
+  .intro-box {
+    background: var(--dark);
+    color: var(--gold-light);
+    border-left: 4px solid var(--gold);
+    padding: 28px 28px 24px;
+    margin: 36px 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .intro-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .intro-box p { font-size: 0.95rem; line-height: 1.8; color: #ddd; }
+
+  /* ---- SECTION HEADERS ---- */
+  .section {
+    margin: 44px 0 0;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--parchment-dark);
+    padding-bottom: 10px;
+  }
+  .section-num {
+    background: var(--dark);
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.45rem;
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .section-header .verse-ref {
+    font-size: 0.8rem;
+    color: var(--mid);
+    font-style: italic;
+    margin-top: 2px;
+  }
+
+  /* ---- VERSE BLOCK ---- */
+  .verse-block {
+    background: linear-gradient(to right, rgba(201,168,76,0.12), rgba(201,168,76,0.04));
+    border-left: 3px solid var(--gold);
+    padding: 16px 20px;
+    margin: 18px 0;
+    font-style: italic;
+    font-size: 0.97rem;
+    color: #3a2a0e;
+    border-radius: 0 4px 4px 0;
+  }
+  .verse-ref-small {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.82rem;
+    color: var(--mid);
+    display: block;
+    margin-top: 6px;
+  }
+
+  /* ---- BODY TEXT ---- */
+  .body-text {
+    color: #2c1f0a;
+    font-size: 0.98rem;
+    margin-bottom: 14px;
+  }
+
+  /* ---- KEY POINT BOX ---- */
+  .key-point {
+    background: #fff8ec;
+    border: 1px solid #e8d08a;
+    border-radius: 6px;
+    padding: 18px 20px;
+    margin: 22px 0;
+  }
+  .key-point strong {
+    color: var(--accent-red);
+    display: block;
+    font-size: 0.82rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .key-point p { font-size: 0.95rem; }
+
+  /* ---- COMPARISON TABLE ---- */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 22px 0;
+    font-size: 0.9rem;
+  }
+  .compare-table th {
+    background: var(--dark);
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    padding: 10px 14px;
+    text-align: left;
+  }
+  .compare-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e0d0b0;
+    vertical-align: top;
+  }
+  .compare-table tr:nth-child(even) td { background: #faf4e8; }
+
+  /* ---- QUOTE (EGW / SOURCE) ---- */
+  .source-quote {
+    background: #f0ebe0;
+    border-radius: 6px;
+    padding: 18px 22px;
+    margin: 22px 0;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #3a2a0e;
+    position: relative;
+  }
+  .source-quote::before {
+    content: '\201C';
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: var(--gold);
+    position: absolute;
+    top: -4px;
+    left: 12px;
+    line-height: 1;
+    opacity: 0.5;
+  }
+  .source-quote p { padding-left: 28px; }
+  .source-cite {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: var(--mid);
+    display: block;
+    margin-top: 8px;
+    padding-left: 28px;
+  }
+
+  /* ---- APPLICATION BOX ---- */
+  .application {
+    background: linear-gradient(135deg, #1e3a5f, #0d2240);
+    color: #e8eef5;
+    padding: 28px 26px;
+    border-radius: 8px;
+    margin: 28px 0;
+  }
+  .application h3 {
+    font-family: 'Playfair Display', serif;
+    color: #a8c8e8;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+  .application ul {
+    padding-left: 20px;
+  }
+  .application li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: #dce8f2;
+  }
+
+  /* ---- DISCUSSION QUESTIONS ---- */
+  .questions {
+    background: #fdf8ef;
+    border: 1px solid #d4b87a;
+    border-radius: 8px;
+    padding: 24px 26px;
+    margin: 28px 0;
+  }
+  .questions h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--accent-red);
+    margin-bottom: 16px;
+  }
+  .questions ol {
+    padding-left: 20px;
+  }
+  .questions li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+  }
+
+  /* ---- PROPHECY HIGHLIGHT ---- */
+  .prophecy-banner {
+    background: linear-gradient(to right, var(--accent-red), #6b1a1a);
+    color: #fdf0e8;
+    padding: 20px 24px;
+    border-radius: 6px;
+    margin: 24px 0;
+    font-size: 0.95rem;
+  }
+  .prophecy-banner strong { color: #ffd4b0; }
+
+  /* ---- TIMELINE ---- */
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+    margin: 22px 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--gold);
+    opacity: 0.4;
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 18px;
+    font-size: 0.93rem;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -22px; top: 7px;
+    width: 10px; height: 10px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+  .timeline-item strong { color: var(--accent-red); }
+
+  /* ---- SUMMARY FOOTER ---- */
+  .summary-footer {
+    border-top: 2px solid var(--gold);
+    margin-top: 50px;
+    padding-top: 28px;
+    text-align: center;
+    color: var(--mid);
+    font-size: 0.88rem;
+  }
+  .summary-footer p { margin-bottom: 6px; }
+  .summary-footer em { color: var(--accent-red); }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 600px) {
+    body { font-size: 15px; }
+    .header { padding: 36px 16px 30px; }
+    .intro-box, .source-quote, .application, .questions { padding: 18px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-tag">Bible Study Series · Book of Daniel</div>
+  <h1>Daniel Chapter 1</h1>
+  <h2>Faith Under Fire — Standing True in Babylon</h2>
+  <p class="header-verse">"But Daniel purposed in his heart that he would not defile himself…" — Daniel 1:8</p>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+  <!-- INTRO -->
+  <div class="intro-box">
+    <h3>📖 Why Daniel Matters</h3>
+    <p>Daniel is one of the most remarkable prophetic books in the whole Bible. Written during the Babylonian captivity (around 605–535 BC), it covers big history — world empires, end-time prophecies, and the great cosmic battle between good and evil. But it also tells the story of real people choosing real faithfulness in real pressure. Chapter 1 sets the stage for everything that follows. You cannot understand chapters 2–12 without chapter 1. The foundation is: <em>whose side are you on, and will you stay there when it costs you something?</em></p>
+  </div>
+
+  <!-- ===================== SECTION 1 ===================== -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div>
+        <h2>Babylon Takes Jerusalem — God Is Not Surprised</h2>
+        <div class="verse-ref">Daniel 1:1–2</div>
+      </div>
+    </div>
+
+    <div class="verse-block">
+      "In the third year of the reign of Jehoiakim king of Judah came Nebuchadnezzar king of Babylon unto Jerusalem, and besieged it. And the Lord gave Jehoiakim king of Judah into his hand…"
+      <span class="verse-ref-small">Daniel 1:1–2 (KJV)</span>
+    </div>
+
+    <p class="body-text">Right from verse 1, we see something important. Notice who gave Jehoiakim into Nebuchadnezzar's hand — <strong>the Lord</strong>. Not Babylon's military strength. Not chance. God permitted this. Why? Because Judah had refused to listen to the prophets — Jeremiah was calling them to repent right at this time (Jeremiah 25:1–11). The captivity was a consequence of persistent apostasy.</p>
+
+    <p class="body-text">This tells us right away that <strong>God is sovereign over history</strong>. Even when things look like the enemy is winning, God is still on the throne. That is the heartbeat of the whole book of Daniel.</p>
+
+    <div class="timeline">
+      <div class="timeline-item"><strong>605 BC</strong> — Nebuchadnezzar's first siege of Jerusalem. Daniel and friends taken. (Daniel 1:1)</div>
+      <div class="timeline-item"><strong>597 BC</strong> — Second siege. Ezekiel taken captive. (2 Kings 24:10–14)</div>
+      <div class="timeline-item"><strong>586 BC</strong> — Third and final siege. Jerusalem destroyed. Temple burned. (2 Kings 25)</div>
+      <div class="timeline-item"><strong>Jeremiah 25:11</strong> — God predicted 70 years of captivity in advance.</div>
+    </div>
+
+    <div class="key-point">
+      <strong>Key Principle</strong>
+      <p>When God seems silent, He is not absent. The very fact that Daniel 1:2 says "the Lord gave" Jerusalem into Babylon's hand shows God is directing events — even painful ones — toward a purpose. Compare <strong>Romans 8:28</strong> and <strong>Isaiah 46:9–10</strong>.</p>
+    </div>
+
+    <div class="source-quote">
+      <p>The Babylonian captivity was not a defeat for God. It was a fulfillment of His word through Jeremiah. God allowed it to purify and preserve a faithful remnant. In the darkest hour of Israel's history, God was preparing the ground for one of the greatest prophetic witnesses the world has ever seen.</p>
+      <span class="source-cite">— Vance Ferrell, <em>The Great Prophecies of Daniel and Revelation</em>, Pilgrim's Rest, p. 12</span>
+    </div>
+  </div>
+
+  <!-- ===================== SECTION 2 ===================== -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div>
+        <h2>Babylon's Education Programme — The War on Identity</h2>
+        <div class="verse-ref">Daniel 1:3–7</div>
+      </div>
+    </div>
+
+    <div class="verse-block">
+      "And the king spake unto Ashpenaz the master of his eunuchs, that he should bring certain of the children of Israel… And the prince of the eunuchs gave names unto them: for he gave unto Daniel the name of Belteshazzar… and unto Azariah, of Abednego."
+      <span class="verse-ref-small">Daniel 1:3, 7 (KJV)</span>
+    </div>
+
+    <p class="body-text">Nebuchadnezzar was a smart king. He did not just conquer nations by force — he conquered them by <strong>assimilation</strong>. He chose the best young men from captured nations and put them through a 3-year Babylonian education. The goal? Completely reshape how they think, what they believe, and who they serve.</p>
+
+    <p class="body-text">Look at what Babylon tried to change about these young Hebrews:</p>
+
+    <table class="compare-table">
+      <tr>
+        <th>What Babylon Changed</th>
+        <th>Hebrew Name (Meaning)</th>
+        <th>Babylonian Name (Meaning)</th>
+      </tr>
+      <tr>
+        <td>Their <strong>names</strong> — their identity</td>
+        <td>Daniel ("God is my Judge")</td>
+        <td>Belteshazzar ("Bel's prince")</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Hananiah ("God is gracious")</td>
+        <td>Shadrach ("Command of Aku")</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Mishael ("Who is like God?")</td>
+        <td>Meshach ("Who is like Aku?")</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Azariah ("God has helped")</td>
+        <td>Abednego ("Servant of Nego")</td>
+      </tr>
+      <tr>
+        <td>Their <strong>diet</strong> — their physical habits</td>
+        <td colspan="2">The king's food was ritually offered to idols and unclean by Mosaic law (Lev. 11; Deut. 14)</td>
+      </tr>
+      <tr>
+        <td>Their <strong>language and literature</strong></td>
+        <td colspan="2">Chaldean language — Babylonian culture, science, magic, and worldview</td>
+      </tr>
+    </table>
+
+    <p class="body-text">Every Hebrew name in this list pointed to <strong>the God of Israel</strong>. Every Babylonian replacement name pointed to <strong>a pagan god</strong>. This was a direct assault on their worship, their identity, and their connection to the God of heaven. Babylon has not changed its strategy. The world today still tries to rename God's people — reshape their values, swap their loyalties, and make them comfortable in a system that leaves God out.</p>
+
+    <div class="prophecy-banner">
+      <strong>Prophetic Connection:</strong> This is a type of the end-time conflict. In Revelation 13–14, the final Babylon again tries to force all people to adopt its mark, its worship, its identity. Those who stand firm — like Daniel — receive God's seal instead (Rev. 7:3; 14:1). Daniel 1 is not just history. It is a preview of the last days.
+    </div>
+
+    <div class="source-quote">
+      <p>The Babylonian system was specifically designed to wash away every trace of Hebrew identity and replace it with a Babylonian one. Changing their names was the first step — to separate them from the God whose name they bore. This is the strategy of the enemy in every age: first make you forget who you are, then make you forget whose you are.</p>
+      <span class="source-cite">— SDA Bible Commentary, Vol. 4, p. 743 (on Daniel 1:7)</span>
+    </div>
+  </div>
+
+  <!-- ===================== SECTION 3 ===================== -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div>
+        <h2>Daniel "Purposed in His Heart" — The Moment of Decision</h2>
+        <div class="verse-ref">Daniel 1:8</div>
+      </div>
+    </div>
+
+    <div class="verse-block">
+      "But Daniel purposed in his heart that he would not defile himself with the portion of the king's meat, nor with the wine which he drank: therefore he requested of the prince of the eunuchs that he might not defile himself."
+      <span class="verse-ref-small">Daniel 1:8 (KJV)</span>
+    </div>
+
+    <p class="body-text">This is the hinge verse of the whole chapter — and one of the most important verses in the entire book. Daniel <strong>"purposed in his heart."</strong> He had already decided before the pressure came. This is not a reactive decision. It is a settled conviction. A line drawn in advance.</p>
+
+    <p class="body-text">Why did Daniel refuse the king's food? Several reasons from Scripture and SDA sources:</p>
+
+    <div class="key-point">
+      <strong>Reason 1 — Mosaic Dietary Law</strong>
+      <p>Leviticus 11 and Deuteronomy 14 gave Israel specific clean/unclean food laws. Royal Babylonian food would have included pork, shellfish, and other unclean animals. Daniel saw this as God's boundary (Lev. 11:44–45). The same health principles are echoed in the SDA health message — not as legalism but as reverence for God's design (1 Cor. 6:19–20).</p>
+    </div>
+
+    <div class="key-point">
+      <strong>Reason 2 — Food Offered to Idols</strong>
+      <p>Babylonian royal food was first offered and dedicated to Babylonian gods. To eat it was to participate, even symbolically, in pagan worship (compare 1 Cor. 10:20–21). Daniel refused to give any honor — even indirect — to the gods of Babylon.</p>
+    </div>
+
+    <div class="key-point">
+      <strong>Reason 3 — A Statement of Loyalty</strong>
+      <p>In the ancient Near East, eating at someone's table was a covenant act — it said "I belong to you, I am your person." Refusing the king's table was Daniel saying: <em>I already have a King.</em> His loyalty was already placed with the God of heaven. Compare <strong>Psalm 23:5</strong> — "Thou preparest a table before me in the presence of mine enemies."</p>
+    </div>
+
+    <div class="source-quote">
+      <p>The diet reform that Daniel and his friends adopted was not mere personal preference. It was a public, principled stand for the God of heaven in the face of enormous peer pressure and potential consequences. It was the same spirit that would later take them into the fiery furnace and the lions' den. The battle always begins in the small things — at the table, in the daily choices, in the quiet moments where no one is watching except God.</p>
+      <span class="source-cite">— Ellen G. White, <em>Prophets and Kings</em>, p. 482 (Pacific Press, 1917)</span>
+    </div>
+
+    <p class="body-text">Notice something else in verse 8: Daniel <strong>"requested"</strong> — he did not demand, he did not rebel, he did not make a scene. He was respectful and wise in how he stood firm. Standing for God does not have to be aggressive. It can be gracious and firm at the same time. This is the balance of the gospel: truth with love (Eph. 4:15).</p>
+  </div>
+
+  <!-- ===================== SECTION 4 ===================== -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div>
+        <h2>God Honours Those Who Honour Him — The Favour of God</h2>
+        <div class="verse-ref">Daniel 1:9–16</div>
+      </div>
+    </div>
+
+    <div class="verse-block">
+      "Now God had brought Daniel into favour and tender love with the prince of the eunuchs… Prove thy servants, I beseech thee, ten days; and let them give us pulse to eat, and water to drink… And at the end of ten days their countenances appeared fairer and fatter in flesh than all the children which did eat the portion of the king's meat."
+      <span class="verse-ref-small">Daniel 1:9, 12, 15 (KJV)</span>
+    </div>
+
+    <p class="body-text">God moved in the heart of Melzar to grant the 10-day trial. Daniel did not get favour because of charm or politics. <strong>"God had brought Daniel into favour"</strong> — verse 9 is clear. When we take our stand for God, He takes responsibility for the outcome. We are not alone.</p>
+
+    <p class="body-text">The 10-day test result was visible: Daniel and his friends looked <strong>healthier</strong> than all the others. This is significant for at least two reasons:</p>
+
+    <div class="key-point">
+      <strong>1. Health is Connected to Holiness</strong>
+      <p>The SDA health message has always emphasised that what we eat affects how we think, feel, and worship. The Adventist Health Study (Loma Linda University) has confirmed what Daniel proved 2,600 years ago — a plant-based diet supports physical and mental health. <strong>1 Samuel 16:7</strong> — God looks on the heart, but He also created the body, and He cares about both. See also <strong>3 John 2</strong>.</p>
+    </div>
+
+    <div class="key-point">
+      <strong>2. God Vindicates Faithfulness in Visible Ways</strong>
+      <p>God did not just give them inner peace — He made their faithfulness visible. The world could see it. This is a recurring pattern in Daniel: faithfulness is tested, then publicly vindicated. Same in Daniel 3 (furnace) and Daniel 6 (lions' den). God's honour is at stake in how His people come through the test.</p>
+    </div>
+
+    <div class="source-quote">
+      <p>Temperance in all things — in diet, in sleep, in study, in all the habits of life — was a safeguard to Daniel and his companions. They maintained their physical and mental vigour not by magic but by cooperation with the laws God had written into the human body. Obedience to natural law is obedience to God.</p>
+      <span class="source-cite">— Ellen G. White, <em>Education</em>, p. 37 (Pacific Press, 1903)</span>
+    </div>
+
+    <p class="body-text">"Pulse" (verse 12, 16) is the Hebrew word <em>zeroa</em> — meaning vegetables, seeds, legumes. This is exactly the original Eden diet of Genesis 1:29. Daniel was going back to the beginning — back to God's design before the Fall and before the compromises of a corrupted world.</p>
+  </div>
+
+  <!-- ===================== SECTION 5 ===================== -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div>
+        <h2>God Gives Wisdom and Understanding — Ten Times Better</h2>
+        <div class="verse-ref">Daniel 1:17–21</div>
+      </div>
+    </div>
+
+    <div class="verse-block">
+      "As for these four children, God gave them knowledge and skill in all learning and wisdom: and Daniel had understanding in all visions and dreams… And in all matters of wisdom and understanding, that the king enquired of them, he found them ten times better than all the magicians and astrologers that were in all his realm."
+      <span class="verse-ref-small">Daniel 1:17, 20 (KJV)</span>
+    </div>
+
+    <p class="body-text">Look at what God gave them. Not just physical health. Not just favour with officials. God gave them <strong>knowledge, skill, learning, wisdom</strong> — and especially to Daniel, <strong>understanding in all visions and dreams</strong>. That last gift is going to carry the entire rest of the book. Chapters 2, 4, 5, 7, 8, 9, 10, 11, 12 all flow from Daniel's gift of prophetic understanding that God planted in chapter 1.</p>
+
+    <p class="body-text">They came out of the 3-year programme <strong>ten times better</strong> than all the magicians and astrologers in Babylon. That is not a modest win — it is a massive vindication. When God's people cooperate with God, God does not just bring them to equal standing — He brings them to excellence. Compare <strong>Proverbs 9:10</strong> — "The fear of the Lord is the beginning of wisdom."</p>
+
+    <div class="source-quote">
+      <p>True education is the harmonious development of the physical, the mental, and the spiritual powers. The result in Daniel was not just a graduate of Babylon's system — he was a man fitted for the kingdom of God, useful even in Babylon because his first loyalty was to heaven. Babylon educated his mind. But God educated his soul. And it was God's education that made the difference.</p>
+      <span class="source-cite">— Ellen G. White, <em>Education</em>, p. 13 (Pacific Press, 1903)</span>
+    </div>
+
+    <div class="source-quote">
+      <p>Daniel became the most trusted counsellor in the most powerful empire of his day, not because he compromised with the world, but because he refused to. His integrity gave him access that no amount of worldly strategy could have provided. God placed him there, and God kept him there — throughout the reigns of Nebuchadnezzar, Belshazzar, and Darius the Mede.</p>
+      <span class="source-cite">— Vance Ferrell, <em>The Great Prophecies of Daniel and Revelation</em>, Pilgrim's Rest, pp. 14–15</span>
+    </div>
+
+    <p class="body-text">Verse 21 closes with a quiet but powerful note: <em>"And Daniel continued even unto the first year of king Cyrus."</em> That is roughly 70 years — the full length of the Babylonian captivity that Jeremiah predicted (Jer. 25:11). Daniel outlasted the whole empire. He was there when Babylon fell. God's people may be in exile, but they are not abandoned — and they will outlast every Babylon this world can build.</p>
+
+    <div class="key-point">
+      <strong>The Connection to Jeremiah and the 70 Years</strong>
+      <p>The captivity began in 605 BC (Daniel 1:1). Cyrus issued the decree for the Jews to return around 537–536 BC — approximately 70 years later. Daniel 9:2 shows us that Daniel himself was reading Jeremiah and calculating when the captivity would end. This shows that faithfulness and prayerful study go hand in hand. The same prophecy that explains his situation is the one that drove him to his knees (Daniel 9:3–19).</p>
+    </div>
+  </div>
+
+  <!-- ===================== APPLICATION ===================== -->
+  <div class="application">
+    <h3>🌿 Living It Today — What Daniel 1 Means for Us</h3>
+    <ul>
+      <li><strong>We live in Babylon too.</strong> Our culture tries to rename us, re-educate us, and feed us from its table. The question is the same as Daniel's: will you eat what the world serves, or purpose in your heart to follow God's way?</li>
+      <li><strong>Small compromises prepare the way for big ones.</strong> Daniel drew his line at the table — before the furnace, before the lions' den. Where are the daily tables you need to say no to?</li>
+      <li><strong>God honours faithfulness — visibly.</strong> You may not see the result in 10 days, but faithfulness to God is never wasted. He vindicates His own in His time and His way.</li>
+      <li><strong>Health is part of holiness.</strong> The SDA health message is not legalism — it is Daniel's principle: honour God with your body, and God honours you with clarity of mind to know His voice (compare 1 Cor. 6:19–20).</li>
+      <li><strong>Respectful but resolved.</strong> Daniel did not rebel. He requested. We can stand for truth with grace — firm in principle, gentle in manner (compare Col. 4:6).</li>
+    </ul>
+  </div>
+
+  <!-- ===================== DISCUSSION QUESTIONS ===================== -->
+  <div class="questions">
+    <h3>💬 Discussion Questions for Group Study</h3>
+    <ol>
+      <li>What are the "king's tables" in your life today — the things that pressure you to adopt Babylon's values or forget your identity in God?</li>
+      <li>Daniel "purposed in his heart" before the pressure came. How do we develop that kind of settled conviction before we are tested?</li>
+      <li>Why do you think God chose to vindicate Daniel's faithfulness in a visible, physical way? What does that say about how God views our witness to the world?</li>
+      <li>Compare Daniel 1 with Revelation 13–14. What similarities do you see between Babylon then and the end-time Babylon? What can we learn from Daniel about how to face it?</li>
+      <li>In verse 8, Daniel made his stand graciously — he "requested." How does this challenge the way Christians sometimes take a stand for truth? What is the balance of firmness and grace?</li>
+    </ol>
+  </div>
+
+  <!-- ===================== SUMMARY FOOTER ===================== -->
+  <div class="summary-footer">
+    <p><strong>Key Verse to Memorise:</strong> <em>"But Daniel purposed in his heart that he would not defile himself…" — Daniel 1:8</em></p>
+    <p><strong>Sources:</strong> SDA Bible Commentary Vol. 4 · Ellen G. White, <em>Prophets and Kings</em> · Ellen G. White, <em>Education</em> · Vance Ferrell, <em>The Great Prophecies of Daniel and Revelation</em> · Review and Herald · SDA Church Archives</p>
+    <p style="margin-top:16px;">Next Study: <em>Daniel 2 — The Dream That Maps Human History</em></p>
+  </div>
+
+</div>
+</body>
+</html>
