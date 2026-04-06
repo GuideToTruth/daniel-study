@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Daniel Bible Study — Guide to Truth</title>
-<meta name="description" content="Free online Bible study through the Book of Daniel. Every Monday 7:30–8:30 PM via Microsoft Teams.">
+<meta name="description" content="Free online Bible study through the Book of Daniel. Every Monday 7:30–8:30 PM via Google Meet.">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -75,7 +75,6 @@ section{padding:80px 24px;}
 .welcome-banner h3{font-family:'Cinzel',serif;color:var(--gold-light);font-size:1.15rem;margin-bottom:14px;}
 .welcome-banner p{color:#c8b090;font-size:1rem;max-width:680px;margin:0 auto;}
 
-/* ── STUDIES ── */
 #studies{background:var(--deep2);}
 .studies-list{display:flex;flex-direction:column;gap:12px;}
 .study-row{display:grid;grid-template-columns:56px 1fr auto auto;align-items:center;gap:18px;background:rgba(255,255,255,.03);border:1px solid var(--border);padding:20px 24px;transition:background .2s,border-color .2s;}
@@ -87,14 +86,11 @@ section{padding:80px 24px;}
 .study-num{font-family:'Cinzel',serif;font-size:1.5rem;font-weight:700;color:var(--gold);text-align:center;}
 .study-info h4{font-family:'Cinzel',serif;font-size:.92rem;color:var(--gold-pale);margin-bottom:4px;}
 .study-info p{font-size:.88rem;color:#907850;}
-
-/* status badges */
 .sbadge{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:20px;white-space:nowrap;}
 .sb-current{background:rgba(201,146,42,.2);border:1px solid var(--gold);color:var(--gold-light);}
 .sb-next{background:rgba(201,146,42,.1);border:1px solid rgba(201,146,42,.4);color:#c8a060;}
 .sb-coming{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:#4a3a20;}
 .sb-done{background:rgba(58,106,40,.2);border:1px solid rgba(58,106,40,.5);color:#80b060;}
-
 .study-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;}
 .btn-dl{display:inline-flex;align-items:center;gap:6px;background:rgba(201,146,42,.15);border:1px solid rgba(201,146,42,.4);color:var(--gold-light);font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:1.5px;text-transform:uppercase;padding:8px 16px;text-decoration:none;transition:all .2s;}
 .btn-dl:hover{background:rgba(201,146,42,.28);border-color:var(--gold);color:#fff;}
@@ -102,13 +98,9 @@ section{padding:80px 24px;}
 .btn-dl.summary:hover{background:rgba(58,106,40,.3);border-color:#80b060;color:#b0e090;}
 .btn-locked{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);color:#3a3020;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:1.5px;text-transform:uppercase;padding:8px 16px;cursor:default;}
 .downloads-note{margin-top:24px;text-align:center;font-size:.88rem;color:#6a5535;font-style:italic;}
+@media(max-width:680px){.study-row{grid-template-columns:40px 1fr;}.sbadge{display:none;}.study-actions{grid-column:1 / -1;}}
 
-@media(max-width:680px){
-  .study-row{grid-template-columns:40px 1fr;}
-  .sbadge{display:none;}
-  .study-actions{grid-column:1 / -1;}
-}
-
+/* ── JOIN SECTION ── */
 #join{background:var(--black);}
 .join-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px;}
 @media(max-width:640px){.join-grid{grid-template-columns:1fr;}}
@@ -120,13 +112,19 @@ section{padding:80px 24px;}
 .join-card ol{padding-left:20px;}
 .join-card li{margin-bottom:10px;font-size:.95rem;color:#c0a878;line-height:1.65;}
 .join-card li strong{color:#fff;}
-.meeting-box{background:var(--deep2);border:2px solid var(--gold);padding:32px 36px;text-align:center;}
-.meeting-box h3{font-family:'Cinzel',serif;font-size:1rem;letter-spacing:2px;color:var(--gold-light);margin-bottom:14px;}
-.meeting-box p{color:#c8b090;font-size:.98rem;margin-bottom:18px;}
-.meeting-link-display{display:inline-block;background:rgba(201,146,42,.12);border:2px dashed var(--gold);padding:14px 28px;font-family:'Cinzel',serif;font-size:.82rem;letter-spacing:1px;color:#fff;margin-bottom:14px;word-break:break-all;}
-.meeting-link-display a{color:var(--gold-light);text-decoration:none;}
-.meeting-link-display a:hover{color:#fff;text-decoration:underline;}
-.meeting-box .time-detail{font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:2px;color:var(--gold);margin-top:6px;}
+
+/* ── MEETING LINK BOX ── */
+.meeting-box{background:var(--deep2);border:2px solid var(--gold);padding:36px 40px;text-align:center;}
+.meeting-box h3{font-family:'Cinzel',serif;font-size:1.05rem;letter-spacing:2px;color:var(--gold-light);margin-bottom:14px;}
+.meeting-box .meet-detail{font-size:1rem;color:#e0c898;margin-bottom:6px;line-height:1.7;}
+.meeting-box .meet-detail strong{color:#fff;}
+.meet-link-btn{display:inline-block;margin-top:20px;background:linear-gradient(135deg,#1a73e8,#0d5bbd);color:#fff;font-family:'Cinzel',serif;font-size:.82rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;padding:16px 40px;border-radius:3px;text-decoration:none;box-shadow:0 4px 24px rgba(26,115,232,.4);transition:all .3s;}
+.meet-link-btn:hover{background:linear-gradient(135deg,#2a83f8,#1a6bcd);transform:translateY(-2px);box-shadow:0 8px 32px rgba(26,115,232,.55);}
+.meet-link-btn::before{content:'📹  ';}
+.meet-raw-link{display:block;margin-top:14px;font-size:.82rem;color:#7a6a50;font-style:italic;}
+.meet-raw-link a{color:#a09070;text-decoration:none;}
+.meet-raw-link a:hover{color:var(--gold-light);}
+.meet-time-tag{display:inline-block;margin-top:18px;font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;border-top:1px solid var(--border);padding-top:16px;width:100%;}
 
 #brochure{background:var(--deep2);text-align:center;}
 .brochure-box{max-width:600px;margin:0 auto;background:var(--black);border:1px solid var(--border);padding:48px 40px;}
@@ -148,7 +146,6 @@ footer{background:#050403;border-top:1px solid var(--border);padding:36px 24px;t
 .footer-brand{font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;}
 footer p{font-size:.85rem;color:#5a4a30;line-height:1.7;}
 .footer-verse{font-style:italic;color:#6a5535;margin-top:12px;font-size:.88rem;}
-
 @media(max-width:640px){section{padding:60px 18px;}}
 </style>
 </head>
@@ -176,11 +173,11 @@ footer p{font-size:.85rem;color:#5a4a30;line-height:1.7;}
     <div class="hero-pills">
       <span class="pill">📅 Every Monday</span>
       <span class="pill">🕢 7:30 – 8:30 PM</span>
-      <span class="pill">💻 Microsoft Teams</span>
+      <span class="pill">🎥 Google Meet</span>
       <span class="pill">🆓 Completely Free</span>
     </div>
     <div class="hero-buttons">
-      <a href="#join" class="btn-primary">How to Join</a>
+      <a href="#join" class="btn-primary">Join the Study</a>
       <a href="#studies" class="btn-secondary">View Studies</a>
     </div>
   </div>
@@ -257,7 +254,6 @@ footer p{font-size:.85rem;color:#5a4a30;line-height:1.7;}
     <span class="section-tag">Downloads</span>
     <h2 class="section-title" style="color:var(--gold-pale);">Study Notes &amp; Meeting Summaries</h2>
     <p class="section-sub">Study notes available before each session · Summaries added after</p>
-
     <div class="studies-list">
 
       <div class="study-row s-current">
@@ -280,9 +276,7 @@ footer p{font-size:.85rem;color:#5a4a30;line-height:1.7;}
           <p>Babylon, Persia, Greece, Rome, divided Europe — and God's coming Kingdom.</p>
         </div>
         <span class="sbadge sb-next">Next</span>
-        <div class="study-actions">
-          <span class="btn-locked">🔒 Coming Soon</span>
-        </div>
+        <div class="study-actions"><span class="btn-locked">🔒 Coming Soon</span></div>
       </div>
 
       <div class="study-row s-coming">
@@ -292,9 +286,7 @@ footer p{font-size:.85rem;color:#5a4a30;line-height:1.7;}
           <p>Same kingdoms, deeper detail. The little horn, the Ancient of Days, and 1844.</p>
         </div>
         <span class="sbadge sb-coming">Coming</span>
-        <div class="study-actions">
-          <span class="btn-locked">🔒 Coming Soon</span>
-        </div>
+        <div class="study-actions"><span class="btn-locked">🔒 Coming Soon</span></div>
       </div>
 
       <div class="study-row s-coming">
@@ -304,9 +296,7 @@ footer p{font-size:.85rem;color:#5a4a30;line-height:1.7;}
           <p>The ram, the goat, and the sanctuary. The longest time prophecy in Scripture.</p>
         </div>
         <span class="sbadge sb-coming">Coming</span>
-        <div class="study-actions">
-          <span class="btn-locked">🔒 Coming Soon</span>
-        </div>
+        <div class="study-actions"><span class="btn-locked">🔒 Coming Soon</span></div>
       </div>
 
       <div class="study-row s-coming">
@@ -316,9 +306,7 @@ footer p{font-size:.85rem;color:#5a4a30;line-height:1.7;}
           <p>The key that unlocks Daniel 8. Pinpoints Christ's baptism and crucifixion precisely.</p>
         </div>
         <span class="sbadge sb-coming">Coming</span>
-        <div class="study-actions">
-          <span class="btn-locked">🔒 Coming Soon</span>
-        </div>
+        <div class="study-actions"><span class="btn-locked">🔒 Coming Soon</span></div>
       </div>
 
       <div class="study-row s-coming">
@@ -328,9 +316,7 @@ footer p{font-size:.85rem;color:#5a4a30;line-height:1.7;}
           <p>The great controversy, kings of the north and south, and the resurrection promise.</p>
         </div>
         <span class="sbadge sb-coming">Coming</span>
-        <div class="study-actions">
-          <span class="btn-locked">🔒 Coming Soon</span>
-        </div>
+        <div class="study-actions"><span class="btn-locked">🔒 Coming Soon</span></div>
       </div>
 
     </div>
@@ -341,8 +327,9 @@ footer p{font-size:.85rem;color:#5a4a30;line-height:1.7;}
 <section id="join">
   <div class="section-inner">
     <span class="section-tag">How to Join</span>
-    <h2 class="section-title" style="color:var(--gold-pale);">Joining on Microsoft Teams</h2>
-    <p class="section-sub">No account needed — it takes less than 2 minutes to get connected</p>
+    <h2 class="section-title" style="color:var(--gold-pale);">Joining on Google Meet</h2>
+    <p class="section-sub">No account needed — just click the link and you are in</p>
+
     <div class="join-grid">
       <div class="join-card">
         <div class="join-card-header">
@@ -350,11 +337,11 @@ footer p{font-size:.85rem;color:#5a4a30;line-height:1.7;}
           <div><h3>On a Laptop or Computer</h3><p>Windows, Mac, or Chromebook</p></div>
         </div>
         <ol>
-          <li>Click the <strong>meeting link</strong> shared before the study</li>
-          <li>Your browser opens — click <strong>"Continue on this browser"</strong></li>
+          <li>Click the <strong>Google Meet link</strong> below or shared on Facebook/WhatsApp</li>
+          <li>Your browser opens the meeting — <strong>no download needed</strong></li>
           <li>Type in your <strong>name</strong> when asked</li>
-          <li>Check your <strong>microphone and camera</strong> are working</li>
-          <li>Click <strong>"Join now"</strong> — you are in!</li>
+          <li>Allow <strong>microphone and camera</strong> access when prompted</li>
+          <li>Click <strong>"Ask to join"</strong> — the host will let you in</li>
         </ol>
       </div>
       <div class="join-card">
@@ -363,21 +350,22 @@ footer p{font-size:.85rem;color:#5a4a30;line-height:1.7;}
           <div><h3>On a Phone or Tablet</h3><p>iPhone, Android, or iPad</p></div>
         </div>
         <ol>
-          <li>Tap the <strong>meeting link</strong> shared before the study</li>
-          <li>Download the free <strong>Microsoft Teams app</strong> from your app store if needed</li>
+          <li>Tap the <strong>Google Meet link</strong> below or shared on Facebook/WhatsApp</li>
+          <li>Download the free <strong>Google Meet app</strong> from your app store — or it may open in your browser directly</li>
           <li>Tap <strong>"Join as guest"</strong> and enter your name</li>
           <li>Allow <strong>microphone and camera</strong> access when asked</li>
-          <li>Tap <strong>"Join meeting"</strong> — done!</li>
+          <li>Tap <strong>"Ask to join"</strong> — done!</li>
         </ol>
       </div>
     </div>
+
     <div class="meeting-box">
-      <h3>📎 Teams Meeting Link</h3>
-      <p>The meeting link will be shared before each Monday session.<br>Save it and click it at 7:30 PM to join.</p>
-      <div class="meeting-link-display">
-        <a href="http://guidetotruth.github.io/daniel-study" target="_blank">guidetotruth.github.io/daniel-study</a>
-      </div>
-      <div class="time-detail">Every Monday · 7:30 – 8:30 PM</div>
+      <h3>📅 Study — Daniel</h3>
+      <p class="meet-detail"><strong>Monday, 20 April 2026 · 7:30 – 8:30 PM</strong></p>
+      <p class="meet-detail">New Zealand (Pacific/Auckland) time · Repeats every Monday</p>
+      <a href="https://meet.google.com/grv-bvvf-mhw" class="meet-link-btn" target="_blank">Join Google Meet</a>
+      <span class="meet-raw-link">Or copy the link: <a href="https://meet.google.com/grv-bvvf-mhw" target="_blank">meet.google.com/grv-bvvf-mhw</a></span>
+      <span class="meet-time-tag">Every Monday · 7:30 PM NZ Time · Free · No account required</span>
     </div>
   </div>
 </section>
@@ -407,10 +395,10 @@ footer p{font-size:.85rem;color:#5a4a30;line-height:1.7;}
         </div>
       </div>
       <div class="contact-card">
-        <div class="contact-card-icon">💻</div>
+        <div class="contact-card-icon">🎥</div>
         <div>
-          <h3>Microsoft Teams</h3>
-          <p>You can also reach us via Teams. Join the Monday study and introduce yourself — everyone is welcome.</p>
+          <h3>Google Meet</h3>
+          <p>Join us live every Monday at 7:30 PM NZ time. Click the meeting link above and introduce yourself — everyone is welcome.</p>
         </div>
       </div>
     </div>
@@ -419,7 +407,7 @@ footer p{font-size:.85rem;color:#5a4a30;line-height:1.7;}
 
 <footer>
   <div class="footer-brand">Guide to Truth</div>
-  <p>Daniel Bible Study · Every Monday 7:30–8:30 PM · Online via Microsoft Teams · Free</p>
+  <p>Daniel Bible Study · Every Monday 7:30 PM NZ Time · Online via Google Meet · Free</p>
   <p class="footer-verse">"He reveals deep and secret things; He knows what is in the darkness, and light dwells with Him." — Daniel 2:22</p>
 </footer>
 
