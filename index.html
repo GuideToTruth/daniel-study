@@ -28,162 +28,122 @@ body {
 
 /* --- FLOATING JOIN BUTTON --- */
 .floating-join {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-  background: var(--red);
-  color: white;
-  padding: 12px 30px;
-  font-family: 'Cinzel', serif;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 50px;
-  box-shadow: 0 4px 15px rgba(122, 24, 24, 0.4);
-  border: 2px solid var(--gold);
-  transition: 0.3s;
-  text-align: center;
-  white-space: nowrap;
+  position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 1000;
+  background: var(--red); color: white; padding: 12px 30px; font-family: 'Cinzel', serif;
+  font-weight: bold; text-decoration: none; border-radius: 50px; border: 2px solid var(--gold);
+  box-shadow: 0 4px 15px rgba(122, 24, 24, 0.4); transition: 0.3s;
 }
-.floating-join:hover {
-  background: var(--ink);
-  transform: translateX(-50%) translateY(-2px);
-}
+.floating-join:hover { background: var(--ink); transform: translateX(-50%) translateY(-2px); }
 
-/* --- HERO SECTION --- */
+/* --- HERO & SEAL --- */
 header {
-  height: 75vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-  border-bottom: 3px solid var(--gold);
-  position: relative;
-  background: var(--parchment-dark);
+  height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; border-bottom: 3px solid var(--gold); position: relative; background: var(--parchment-dark);
 }
-
 .seal-bg {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 450px; height: 450px;
-  background: url('https://img.icons8.com/ios/500/7a1818/wax-seal.png') no-repeat center;
-  background-size: contain;
-  opacity: 0.05;
-  pointer-events: none;
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 400px; height: 400px; background: url('https://img.icons8.com/ios/500/7a1818/wax-seal.png') no-repeat center;
+  background-size: contain; opacity: 0.05; pointer-events: none;
 }
+.hero-title { font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 8vw, 5rem); letter-spacing: 10px; color: var(--ink); z-index: 1; }
 
-.hero-title { font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 8vw, 5rem); letter-spacing: 10px; color: var(--ink); z-index: 1; margin: 15px 0; }
-.hero-tag { font-family: 'Cinzel', serif; color: var(--red); letter-spacing: 4px; z-index: 1; font-weight: bold; }
-
-/* --- CONTENT SECTIONS --- */
-.container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
-
-.section-card {
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid var(--border);
-  padding: 40px;
-  margin-bottom: 50px;
+/* --- LOGISTICS SECTION (THE "STAND OUT" BOX) --- */
+.logistics-banner {
+  background: white; border: 2px solid var(--red); max-width: 900px; margin: -50px auto 50px;
+  position: relative; z-index: 10; display: flex; flex-wrap: wrap; justify-content: space-around;
+  padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center;
 }
-
-h2 { font-family: 'Cinzel', serif; color: var(--red); margin-bottom: 30px; text-align: center; font-size: 2rem; }
+.logistics-item { flex: 1; min-width: 200px; padding: 10px; border-right: 1px solid var(--border); }
+.logistics-item:last-child { border-right: none; }
+.logistics-item h4 { font-family: 'Cinzel'; color: var(--red); font-size: 0.8rem; letter-spacing: 2px; }
+.logistics-item p { font-weight: bold; font-size: 1.2rem; }
 
 /* --- GRID LAYOUTS --- */
-.action-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-}
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+.section-card { background: rgba(255, 255, 255, 0.6); border: 1px solid var(--border); padding: 40px; margin-bottom: 50px; }
+h2 { font-family: 'Cinzel', serif; color: var(--red); text-align: center; margin-bottom: 30px; }
 
-.action-box {
-  padding: 40px;
-  background: white;
-  border: 1px solid var(--gold);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.btn-gold {
-  display: inline-block;
-  padding: 12px 25px;
-  background: var(--gold);
-  color: white;
-  text-decoration: none;
-  font-family: 'Cinzel', serif;
-  font-weight: bold;
-  margin-top: 20px;
-  transition: 0.3s;
-}
-.btn-gold:hover { background: var(--ink); }
+.chapter-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+.chapter-card { border: 1px solid var(--border); padding: 20px; background: white; position: relative; }
+.chapter-card.locked { opacity: 0.6; background: #fcfcfc; }
+.lock-tag { font-family: 'Cinzel'; font-size: 0.6rem; color: var(--gold); display: block; margin-bottom: 5px; }
 
 footer { text-align: center; padding: 80px 20px; border-top: 1px solid var(--gold); background: var(--parchment-dark); }
-
-@media (max-width: 600px) {
-  .floating-join { padding: 10px 20px; font-size: 0.8rem; }
-  .hero-title { letter-spacing: 4px; }
-}
 </style>
 </head>
 <body>
 
-<a href="https://meet.google.com/grv-bvvf-mhw" class="floating-join" target="_blank">
-  CLICK TO JOIN STUDY LIVE
-</a>
+<a href="https://meet.google.com/grv-bvvf-mhw" class="floating-join" target="_blank">JOIN STUDY LIVE</a>
 
 <header>
   <div class="seal-bg"></div>
-  <p class="hero-tag">A Prophetic Investigation</p>
+  <p style="font-family:'Cinzel'; letter-spacing:4px; color:var(--red); z-index:1;">A Prophetic Investigation</p>
   <h1 class="hero-title">DANIEL</h1>
-  <p style="z-index:1; font-size: 1.3rem; max-width: 650px; font-style: italic;">Understanding the Blueprints of the Future</p>
 </header>
 
+<div class="logistics-banner">
+  <div class="logistics-item">
+    <h4>START DATE</h4>
+    <p>27 April 2026</p>
+  </div>
+  <div class="logistics-item">
+    <h4>WEEKLY TIME</h4>
+    <p>Mondays 7:30 PM (NZST)</p>
+  </div>
+  <div class="logistics-item">
+    <h4>LOCATION</h4>
+    <p>Online / Google Meet</p>
+  </div>
+</div>
+
 <div class="container">
-  
   <div class="section-card">
-    <h2>Why This Study?</h2>
-    <div class="action-grid">
-      <div>
-        <h3 style="font-family:'Cinzel'; color:var(--gold); margin-bottom:10px;">Prophetic Clarity</h3>
-        <p>Current events—wars, tensions in Iran, fuel prices, and digital currencies—are not random. We prove the Bible's reliability by connecting history to these difficult times.</p>
+    <h2>The Prophetic Blueprint</h2>
+    <p style="text-align: center; font-size: 1.2rem; margin-bottom: 30px;">
+      Prophecy is the proof that the Bible can be trusted. As tensions rise in Iran, fuel prices fluctuate, and digital currencies emerge, we look to the Word for clarity.
+    </p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+      <div style="background:white; padding: 25px; border-top: 3px solid var(--gold);">
+        <h3 style="font-family:'Cinzel'; color:var(--red);">Wars & Rumours</h3>
+        <p>Understand how current conflicts were explained centuries ago. Find peace in the sure Word.</p>
       </div>
-      <div>
-        <h3 style="font-family:'Cinzel'; color:var(--gold); margin-bottom:10px;">High Jesus</h3>
-        <p>Our goal is to exalt Jesus Christ as the center of prophecy. By studying Daniel, we see that God is in control of the past, present, and your future.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="action-grid">
-    <div class="action-box">
-      <div>
-        <h3 style="font-family:'Cinzel';">Study Brochure</h3>
-        <p>Get the full 12-chapter schedule and study details in a printable A4 tri-fold booklet.</p>
-      </div>
-      <a href="Daniel_Study_Brochure.html" class="btn-gold">📄 VIEW BROCHURE</a>
-    </div>
-
-    <div class="action-box">
-      <div>
-        <h3 style="font-family:'Cinzel';">Contact Us</h3>
-        <p>Reach out with questions or for help joining the study.</p>
-        <p style="font-weight: bold; margin-top: 15px; color: var(--red);">
-            <a href="mailto:3ampresenttruth@gmail.com" style="color:var(--red); text-decoration:none;">3ampresenttruth@gmail.com</a>
-        </p>
+      <div style="background:white; padding: 25px; border-top: 3px solid var(--gold);">
+        <h3 style="font-family:'Cinzel'; color:var(--red);">Exalting Jesus</h3>
+        <p>Our focus is to "High Jesus"—proving He is the master of history and our only hope in difficult times.</p>
       </div>
     </div>
   </div>
 
+  <h2 style="text-align: left; border-bottom: 2px solid var(--gold); display: inline-block;">Prophetic Roadmap</h2>
+  <div class="chapter-grid" style="margin-top: 20px;">
+    <div class="chapter-card">
+      <span class="lock-tag">🔓 UNLOCKED</span>
+      <h4 style="font-family:'Cinzel';">Chapter 1</h4>
+      <p>The Test of Loyalty & Health in Babylon.</p>
+      <a href="Daniel_Chapter_1_Study.html" style="color:var(--red); font-size: 0.8rem; font-weight: bold; text-decoration: none; display: block; margin-top: 10px;">OPEN NOTES →</a>
+    </div>
+    <div class="chapter-card locked"><span class="lock-tag">🔒 LOCKED</span><h4 style="font-family:'Cinzel';">Chapter 2</h4><p>The Great Image: Rise & Fall of Empires.</p></div>
+    <div class="chapter-card locked"><span class="lock-tag">🔒 LOCKED</span><h4 style="font-family:'Cinzel';">Chapter 3</h4><p>The Fiery Furnace: Standing Under Pressure.</p></div>
+    <div class="chapter-card locked"><span class="lock-tag">🔒 LOCKED</span><h4 style="font-family:'Cinzel';">Chapter 4</h4><p>The Watcher's Decree.</p></div>
+    <div class="chapter-card locked"><span class="lock-tag">🔒 LOCKED</span><h4 style="font-family:'Cinzel';">Chapter 5</h4><p>Writing on the Wall.</p></div>
+    <div class="chapter-card locked"><span class="lock-tag">🔒 LOCKED</span><h4 style="font-family:'Cinzel';">Chapter 6</h4><p>The Lion's Den.</p></div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 50px;">
+    <div style="text-align: center; border: 1px solid var(--gold); padding: 30px; background: white;">
+      <h3 style="font-family:'Cinzel';">Brochure</h3>
+      <a href="Daniel_Study_Brochure.html" style="color:var(--red); font-weight: bold; text-decoration: none;">Download A4 Tri-Fold 📄</a>
+    </div>
+    <div style="text-align: center; border: 1px solid var(--gold); padding: 30px; background: white;">
+      <h3 style="font-family:'Cinzel';">Inquiries</h3>
+      <p style="font-weight: bold; color: var(--red);">3ampresenttruth@gmail.com</p>
+    </div>
+  </div>
 </div>
 
 <footer>
-  <p style="font-family:'Cinzel'; color:var(--red); letter-spacing: 2px;">GUIDETOTRUTH.GITHUB.IO/DANIEL-STUDY/</p>
-  <p style="margin-top: 15px; font-weight: 600;">Starting 27 April 2026 | Mondays 7:30 PM NZST</p>
-  <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 25px;">Primary Text: King James Version (KJV)</p>
+  <p style="font-family:'Cinzel'; letter-spacing: 2px;">guidetotruth.github.io/daniel-study/</p>
+  <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 20px;">Primary Text: King James Version (KJV)</p>
 </footer>
 
 </body>
