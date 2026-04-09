@@ -1,113 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daniel Bible Study — Guide to Truth</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
-:root {
-  --black: #080604; --deep: #130e05; --gold: #c9922a; --gold-light: #e8b84b;
-  --gold-pale: #f5e0a8; --red: #7a1818; --cream: #f7f0e2; --border: rgba(201,146,42,0.3);
-}
+  /* Seal and Ring Background Styling */
+  .seal-bg-section {
+    position: relative;
+    padding: 100px 24px;
+    background: var(--black);
+    overflow: hidden;
+  }
+  .seal-bg-section::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 600px;
+    background: url('https://img.icons8.com/ios/500/c9922a/wax-seal.png'); /* Placeholder Seal */
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.05;
+    z-index: 0;
+  }
 
-body { 
-  background: var(--black); color: var(--cream); font-family: 'Crimson Pro', serif; 
-  margin: 0; padding: 0; line-height: 1.7; 
-}
-
-/* --- HERO SECTION --- */
-header {
-  height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-  background: linear-gradient(rgba(8,6,4,0.7), rgba(8,6,4,0.9)), 
-              url('https://images.unsplash.com/photo-1507434965515-61970f2bd7c6?q=80&w=2000');
-  background-size: cover; background-position: center; border-bottom: 4px solid var(--gold);
-  text-align: center; padding: 20px;
-}
-
-.hero-title { font-family: 'Cinzel', serif; font-size: 5rem; color: var(--gold); letter-spacing: 12px; margin: 0; text-shadow: 0 4px 15px rgba(0,0,0,0.8); }
-.hero-tag { font-family: 'Cinzel', serif; color: var(--gold-pale); letter-spacing: 4px; font-size: 1.2rem; text-transform: uppercase; margin-top: -10px; }
-
-/* --- CONTENT WRAPPER --- */
-.page-body { max-width: 1000px; margin: -80px auto 60px; padding: 0 20px; position: relative; z-index: 10; }
-
-.main-card {
-  background: var(--deep); border: 2px solid var(--gold); padding: 50px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.8); text-align: center;
-}
-
-.section-divider { width: 150px; height: 1px; background: var(--gold); margin: 30px auto; opacity: 0.5; }
-
-/* --- THE GRID --- */
-.resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 50px; }
-
-.card {
-  background: rgba(255,255,255,0.02); border: 1px solid var(--border); padding: 30px;
-  transition: all 0.4s ease; text-align: left;
-}
-.card:hover { border-color: var(--gold); background: rgba(201,146,42,0.05); transform: translateY(-5px); }
-.card h3 { font-family: 'Cinzel', serif; color: var(--gold-pale); margin-bottom: 15px; }
-
-.btn {
-  display: inline-block; padding: 12px 30px; background: var(--red); color: white;
-  text-decoration: none; font-family: 'Cinzel', serif; font-weight: bold;
-  letter-spacing: 1px; margin-top: 15px; border: 1px solid var(--red);
-}
-.btn:hover { background: transparent; border-color: var(--gold); color: var(--gold); }
-
-footer { 
-  text-align: center; padding: 60px; background: var(--deep); border-top: 1px solid var(--gold); 
-  font-size: 0.9rem; letter-spacing: 1px;
-}
-
-@media (max-width: 768px) { .hero-title { font-size: 3rem; } }
+  /* Unlocking Chapters Grid */
+  .book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  .book-card {
+    background: rgba(19, 14, 5, 0.9);
+    border: 1px solid var(--border);
+    padding: 25px;
+    transition: 0.3s;
+  }
+  .book-card.locked { border-color: #333; opacity: 0.7; }
+  .lock-icon { color: var(--gold); font-size: 0.8rem; margin-bottom: 10px; display: block; }
+  
+  /* Urgency/Reasons Grid */
+  .urgency-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    margin-top: 40px;
+  }
+  @media(max-width: 800px) { .urgency-grid { grid-template-columns: 1fr; } }
 </style>
-</head>
-<body>
 
-<header>
-  <p class="hero-tag">The Book of</p>
-  <h1 class="hero-title">DANIEL</h1>
-  <p style="font-size: 1.4rem; max-width: 700px; color: var(--cream);">Understanding the Blueprint of the Future in Uncertain Times.</p>
-</header>
-
-<div class="page-body">
-  <div class="main-card">
-    <h2 style="font-family: 'Cinzel'; color: var(--gold);">Everyone is Welcome</h2>
-    <div class="section-divider"></div>
-    <p style="font-size: 1.25rem;">We live in a world that feels increasingly heavy. The Book of Daniel tells the story of those who stood firm while empires crumbled. Join us for a deep, scriptural journey through the prophecies that define our era.</p>
+<section id="why-join" class="seal-bg-section">
+  <div class="section-inner">
+    <span class="section-tag">The Time is At Hand</span>
+    <h2 class="section-title">Why Study Daniel Now?</h2>
     
-    <p style="color: var(--gold-light); font-weight: 600; margin-top: 20px;">
-      MONDAYS 7:30 PM (NZST) | STARTING 27 APRIL 2026
-    </p>
-  </div>
+    <div class="urgency-grid">
+      <div class="news-card">
+        <span class="news-icon">⚔️</span>
+        <h3>1. Wars & Rumors of War</h3>
+        <p>The headlines are chaotic, but they are not a surprise. We explore how Bible prophecy explains the current global instability and what it means for our immediate future.</p>
+      </div>
+      
+      <div class="news-card">
+        <span class="news-icon">⛽</span>
+        <h3>2. Global Pressure</h3>
+        <p>From the tensions in Iran to rising petrol prices and the move toward digital currencies, we look at the economic and political shifts through a prophetic lens.</p>
+      </div>
 
-  <div class="resource-grid">
-    <div class="card">
-      <h3>Study Brochure</h3>
-      <p>A beautiful tri-fold guide including the full 12-chapter scope and study schedule.</p>
-      <a href="Daniel_Study_Brochure.html" class="btn">View & Download</a>
-    </div>
-
-    <div class="card" style="background: rgba(122, 24, 24, 0.05);">
-      <h3>Live Meeting</h3>
-      <p>Join our interactive online sessions via Google Meet every Monday evening.</p>
-      <a href="https://meet.google.com/grv-bvvf-mhw" target="_blank" class="btn">Join Session</a>
-    </div>
-
-    <div class="card">
-      <h3>Chapter Notes</h3>
-      <p>Access the detailed study guides for each session, grounded in the King James Version.</p>
-      <a href="Daniel_Chapter_1_Study.html" class="btn">Access Notes</a>
+      <div class="news-card" style="border-top-color: var(--gold);">
+        <span class="news-icon">✨</span>
+        <h3>3. The Sure Word</h3>
+        <p>Prophecy is the proof that the Bible can be trusted. Our goal is to "High Jesus" and show that in a world of lies, His Word remains the only sure foundation.</p>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
-<footer>
-  <p style="font-family: 'Cinzel'; color: var(--gold);">guidetotruth.github.io/daniel-study/</p>
-  <p style="margin-top: 10px; opacity: 0.7;">3ampresenttruth@gmail.com</p>
-  <p style="margin-top: 20px; font-style: italic; font-size: 0.8rem;">"But the people that do know their God shall be strong..." — Daniel 11:32</p>
-</footer>
+<section id="chapters" class="section-inner">
+  <span class="section-tag">Chapter by Chapter</span>
+  <h2 class="section-title">Unlocking the Prophecies</h2>
+  <p class="section-sub">Study notes and deep-dives will be added manually as we progress through the weeks.</p>
 
-</body>
-</html>
+  <div class="book-grid">
+    <div class="book-card">
+      <span class="lock-icon">🔓 UNLOCKED</span>
+      <h3>Chapter 1: The Test</h3>
+      <p>A review of the faithfulness of the four Hebrew youth in Babylon and the physical/spiritual test of the King's meat.</p>
+      <p class="key-verse">"But Daniel purposed in his heart that he would not defile himself..." — Daniel 1:8</p>
+    </div>
+
+    <div class="book-card locked">
+      <span class="lock-icon">🔒 LOCKED (Coming Soon)</span>
+      <h3>Chapter 2: The Image</h3>
+      <p>The great prophetic dream of Nebuchadnezzar, revealing the rise and fall of world empires from Babylon to the end of time.</p>
+      <p class="key-verse">"And in the days of these kings shall the God of heaven set up a kingdom..." — Daniel 2:44</p>
+    </div>
+
+    </div>
+</section>
