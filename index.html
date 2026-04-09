@@ -4,28 +4,155 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Daniel Bible Study — Guide to Truth</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Crimson+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-  :root { --black:#080604; --gold:#c9922a; --gold-pale:#f5e0a8; --cream:#f7f0e2; --red:#7a1818; }
-  body { background: var(--black); color: var(--cream); font-family: 'Crimson Pro', serif; margin: 0; }
-  .hero { text-align: center; padding: 100px 20px; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1507434965515-61970f2bd7c6?auto=format&fit=crop&q=80&w=2000'); background-size: cover; border-bottom: 2px solid var(--gold); }
-  h1 { font-family: 'Cinzel', serif; font-size: 4rem; color: var(--gold); margin: 0; }
-  .tagline { font-size: 1.5rem; color: var(--gold-pale); margin-bottom: 30px; }
-  .btn { display: inline-block; padding: 15px 30px; background: var(--red); color: white; text-decoration: none; border-radius: 4px; font-weight: bold; transition: 0.3s; }
-  .btn:hover { background: var(--gold); color: var(--black); }
-  .container { max-width: 900px; margin: 50px auto; padding: 0 20px; line-height: 1.8; }
+  :root {
+    --black: #080604;
+    --deep: #130e05;
+    --gold: #c9922a;
+    --gold-pale: #f5e0a8;
+    --red: #7a1818;
+    --cream: #f7f0e2;
+  }
+
+  body { 
+    background-color: var(--black); 
+    color: var(--cream); 
+    font-family: 'Crimson Pro', serif; 
+    margin: 0; 
+    line-height: 1.6;
+  }
+
+  /* Header / Hero Section */
+  .hero {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(8,6,4,0.8), rgba(8,6,4,0.8)), 
+                url('https://images.unsplash.com/photo-1507434965515-61970f2bd7c6?auto=format&fit=crop&q=80&w=2000');
+    background-size: cover;
+    background-position: center;
+    border-bottom: 3px solid var(--gold);
+  }
+
+  h1 { 
+    font-family: 'Cinzel', serif; 
+    font-size: clamp(3rem, 10vw, 6rem); 
+    color: var(--gold); 
+    margin: 0; 
+    letter-spacing: 8px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  }
+
+  .subtitle { 
+    font-family: 'Cinzel', serif; 
+    font-size: 1.2rem; 
+    color: var(--gold-pale); 
+    letter-spacing: 4px; 
+    margin-top: -10px;
+    text-transform: uppercase;
+  }
+
+  /* Main Content Layout */
+  .container { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
+
+  .intro-card {
+    background: var(--deep);
+    border: 1px solid var(--gold);
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin-top: -100px;
+    position: relative;
+    z-index: 10;
+  }
+
+  h2 { font-family: 'Cinzel', serif; color: var(--gold); font-size: 2rem; }
+  
+  .highlight-red { color: var(--red); font-weight: bold; }
+
+  /* Resource Grid */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+  
+  .card { 
+    background: rgba(255,255,255,0.03); 
+    border-top: 2px solid var(--gold); 
+    padding: 30px; 
+    transition: 0.3s;
+  }
+  .card:hover { background: rgba(255,255,255,0.07); transform: translateY(-5px); }
+
+  .btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--red);
+    color: white;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-top: 20px;
+    transition: 0.3s;
+    border: 1px solid transparent;
+  }
+  .btn:hover { background: transparent; border: 1px solid var(--gold); color: var(--gold); }
+
+  footer { 
+    text-align: center; 
+    padding: 60px 20px; 
+    border-top: 1px solid var(--gold); 
+    background: var(--deep);
+    margin-top: 100px;
+  }
+
+  .url-display { font-family: 'Cinzel', serif; color: var(--gold-pale); font-size: 0.8rem; }
 </style>
 </head>
 <body>
-  <div class="hero">
+
+  <section class="hero">
+    <p class="subtitle">A Journey Through Prophecy</p>
     <h1>DANIEL</h1>
-    <p class="tagline">Prophecy, History, and the Hand of God</p>
-    <a href="Daniel_Study_Brochure.html" class="btn">Download Study Brochure</a>
-  </div>
+    <div style="width: 100px; height: 2px; background: var(--gold); margin: 20px auto;"></div>
+    <p style="font-size: 1.5rem; max-width: 600px;">The Hand of God in Human History</p>
+  </section>
+
   <div class="container">
-    <h2>Starting 27 April 2026</h2>
-    <p>Join us every Monday from 7:30 PM to 8:30 PM (NZST) as we explore the profound visions and historical faithfulness found in the Book of Daniel. This study is open to everyone—regardless of background or prior Bible knowledge.</p>
-    <p><strong>Primary Text:</strong> The Holy Bible (King James Version)</p>
+    <div class="intro-card">
+      <h2>Welcome to the Search</h2>
+      <p>We live in a world that feels increasingly uncertain. The Book of Daniel was written for times exactly like these. Whether you are a lifelong student of the Word or opening it for the first time, you are invited to explore the blueprints of the future.</p>
+      <p class="highlight-red">Starting 27 April 2026 | Mondays 7:30 PM (NZST)</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Study Brochure</h3>
+        <p>A concise guide to the study scope and schedule. Perfect for sharing with friends or printing as a personal reference.</p>
+        <a href="Daniel_Study_Brochure.html" class="btn">View Brochure</a>
+      </div>
+
+      <div class="card">
+        <h3>Join the Meeting</h3>
+        <p>Our sessions are held weekly via Google Meet. Join the conversation every Monday evening from the comfort of your home.</p>
+        <a href="https://meet.google.com/grv-bvvf-mhw" target="_blank" class="btn">Join Meeting</a>
+      </div>
+
+      <div class="card">
+        <h3>Study Materials</h3>
+        <p>Access our deep-dive study notes for each chapter. Grounded in the KJV text and historical context.</p>
+        <a href="Daniel_Chapter_1_Study.html" class="btn">Read Chapter 1</a>
+      </div>
+    </div>
   </div>
+
+  <footer>
+    <p>3ampresenttruth@gmail.com</p>
+    <p class="url-display">guidetotruth.github.io/daniel-study/</p>
+    <p style="font-size: 0.9rem; opacity: 0.6; margin-top: 20px;">Primary Text: King James Version (KJV)</p>
+  </footer>
+
 </body>
 </html>
