@@ -3,11 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <title>Daniel Study - Scope of Learning</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Crimson+Pro&display=swap" rel="stylesheet">
 <style>
-  body { font-family: 'Crimson Pro', serif; max-width: 800px; margin: 40px auto; padding: 20px; background: #fdfaf3; color: #1c140a; }
+  body { 
+    font-family: 'Crimson Pro', serif; 
+    max-width: 900px; 
+    margin: 40px auto; 
+    padding: 40px; 
+    /* LIGHT THEME: Parchment Background */
+    background: #fdfaf3 url('https://www.transparenttextures.com/patterns/aged-paper.png'); 
+    color: #1c140a; 
+    line-height: 1.8;
+    position: relative;
+  }
+  
+  /* Seal and Ring Watermark (Subtle) */
+  body::after {
+    content: ''; position: fixed; top: 50%; left: 50%;
+    transform: translate(-50%, -50%); width: 600px; height: 600px;
+    background: url('https://img.icons8.com/ios/500/7a1818/wax-seal.png') no-repeat center;
+    background-size: contain; opacity: 0.03; z-index: -1;
+  }
+
   h1, h2 { font-family: 'Cinzel', serif; color: #7a1818; }
-  .format-box { border: 2px solid #c9922a; padding: 20px; background: #fff; margin: 20px 0; }
+  
+  .format-box { 
+    border: 2px solid #c9922a; 
+    padding: 30px; 
+    background: rgba(255,255,255,0.7); 
+    margin: 30px 0; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+  }
+  
   ul { line-height: 2; }
+  
+  .curriculum-list li { margin-bottom: 10px; padding-left: 10px; border-left: 2px solid #c9922a; list-style: none;}
 </style>
 </head>
 <body>
@@ -15,20 +45,21 @@
   <p>Our objective is to understand the prophetic timeline and the historical accuracy of the scriptures, centered on the King James Version.</p>
   
   <div class="format-box">
-    <h2>Weekly Format</h2>
+    <h2>Weekly Format (60 Minutes)</h2>
     <ul>
       <li><strong>Opening Prayer:</strong> 2 Minutes</li>
-      <li><strong>Scripture Reading:</strong> 10 Minutes</li>
+      <li><strong>Scripture Reading (KJV):</strong> 10 Minutes</li>
       <li><strong>Teaching & Historical Context:</strong> 35 Minutes</li>
       <li><strong>Group Discussion:</strong> 15 Minutes</li>
     </ul>
   </div>
 
   <h2>Curriculum Overview</h2>
-  <ul>
+  <ul class="curriculum-list">
     <li>Chapter 1: The Test of Loyalty & Health</li>
     <li>Chapter 2: The Great Image & World Empires</li>
     <li>Chapter 3: The Fiery Furnace</li>
+    <li>Chapter 4: The King's Madness</li>
     <li>Chapter 7-12: The Prophetic Visions</li>
   </ul>
 </body>
