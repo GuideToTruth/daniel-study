@@ -2,47 +2,90 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Daniel Study Brochure - Print Version</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Crimson+Pro&display=swap" rel="stylesheet">
+<title>Daniel Bible Study Brochure</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  body { margin: 0; padding: 0; background: #333; }
-  .a4-page {
-    width: 297mm; height: 210mm; background: #fdfaf3; margin: 20px auto;
-    display: flex; box-shadow: 0 0 10px rgba(0,0,0,0.5); position: relative;
-    padding: 10mm; box-sizing: border-box; overflow: hidden;
-  }
-  .panel { width: 33.33%; padding: 10mm; border-right: 1px dashed #ccc; box-sizing: border-box; position: relative; }
-  .panel:last-child { border-right: none; }
-  h2 { font-family: 'Cinzel', serif; color: #7a1818; font-size: 18pt; margin-bottom: 10px; }
-  p { font-family: 'Crimson Pro', serif; font-size: 11pt; line-height: 1.4; color: #1c140a; }
-  .header-img { width: 100%; height: 50mm; background: #000; margin-bottom: 10px; }
-  @media print {
-    body { background: none; }
-    .a4-page { margin: 0; box-shadow: none; border: none; }
-    .panel { border-right: none; }
-  }
+    :root {
+        --ink: #1c140a; --gold: #c9922a; --red: #7a1818; --cream: #fdfaf3;
+    }
+    * { box-sizing: border-box; -webkit-print-color-adjust: exact; }
+    body { margin: 0; padding: 0; background: #333; font-family: 'Crimson Pro', serif; }
+
+    /* A4 Landscape Setup */
+    .page {
+        width: 297mm; height: 210mm; background: var(--cream);
+        margin: 20px auto; display: flex; position: relative;
+        box-shadow: 0 0 15px rgba(0,0,0,0.5); overflow: hidden;
+    }
+
+    /* Column/Panel Logic */
+    .panel {
+        width: 33.333%; height: 100%; padding: 12mm;
+        display: flex; flex-direction: column; justify-content: center;
+        border-right: 1px dashed rgba(0,0,0,0.1); position: relative;
+    }
+    .panel:last-child { border-right: none; }
+
+    /* Typography */
+    h1 { font-family: 'Cinzel', serif; color: var(--red); font-size: 32pt; margin: 0; line-height: 1; }
+    h2 { font-family: 'Cinzel', serif; color: var(--gold); font-size: 18pt; margin-bottom: 15px; border-bottom: 1px solid var(--gold); display: inline-block; }
+    p { font-size: 11.5pt; line-height: 1.5; color: var(--ink); margin-bottom: 12px; }
+    .highlight { color: var(--red); font-weight: 600; }
+    .url { font-family: 'Cinzel', serif; font-size: 10pt; color: var(--red); word-break: break-all; margin-top: 10px; display: block; font-weight: bold;}
+
+    /* Special Elements */
+    .cover-art { margin-top: 20px; border-top: 2px solid var(--gold); border-bottom: 2px solid var(--gold); padding: 10px 0; }
+    .quote { font-style: italic; border-left: 3px solid var(--red); padding-left: 10px; margin: 20px 0; }
+
+    @media print {
+        body { background: none; }
+        .page { margin: 0; box-shadow: none; border: none; }
+        .no-print { display: none; }
+    }
 </style>
 </head>
 <body>
-  <div class="a4-page">
+
+<div class="page">
     <div class="panel">
-      <h2>A Word to You</h2>
-      <p>The Book of Daniel was written for people exactly like us. It was written in uncertain times, yet it is full of confidence that God is still on the throne.</p>
-      <p>Whether you have read the Bible your whole life or are opening it for the first time, you are welcome here.</p>
+        <h2>Unlocking the Past</h2>
+        <p>Does it feel like the world is moving too fast? That the headlines of today were written centuries ago?</p>
+        <p>The Book of Daniel is not just ancient history—it is a <span class="highlight">blueprint for the present</span>. It tells the story of people who stood tall when everything else was falling apart.</p>
+        <div class="quote">
+            "But the people that do know their God shall be strong, and do exploits." — Daniel 11:32
+        </div>
+        <p>Join a community of seekers as we dive deep into the most profound prophecies ever recorded. No prior knowledge required—only a heart that wants to know the truth.</p>
     </div>
-    <div class="panel">
-      <h2>Study Details</h2>
-      <p><strong>When:</strong> Every Monday<br>7:30 PM - 8:30 PM (NZST)</p>
-      <p><strong>Where:</strong> Online via Google Meet<br>meet.google.com/grv-bvvf-mhw</p>
-      <p><strong>Cost:</strong> Free of charge</p>
+
+    <div class="panel" style="background: rgba(201,146,42,0.05);">
+        <h2>Join the Study</h2>
+        <p><strong>Every Monday Night</strong><br>7:30 PM — 8:30 PM (NZST)</p>
+        <p><strong>Starts:</strong> 27 April 2026</p>
+        <p><strong>Where:</strong> Online via Google Meet<br>
+        <span class="highlight">meet.google.com/grv-bvvf-mhw</span></p>
+        
+        <p style="margin-top: 20px;"><strong>The Full Experience:</strong><br>
+        Access study notes, historical timelines, and chapter-by-chapter breakdowns at:</p>
+        <span class="url">https://guidetotruth.github.io/daniel-study/</span>
+        
+        <p style="margin-top: 20px; font-size: 10pt; opacity: 0.8;">Contact: 3ampresenttruth@gmail.com</p>
     </div>
-    <div class="panel" style="text-align:center;">
-      <h1 style="font-family:'Cinzel'; font-size: 32pt; margin-top: 20mm;">DANIEL</h1>
-      <p style="font-weight:bold; color:#7a1818;">A Journey Through Prophecy</p>
-      <div style="margin-top: 40mm; border-top: 1px solid #c9922a; padding-top: 10px;">
-        <p>3ampresenttruth@gmail.com</p>
-      </div>
+
+    <div class="panel" style="text-align: center;">
+        <p style="letter-spacing: 4px; text-transform: uppercase; margin: 0; font-size: 9pt;">A Journey Through Prophecy</p>
+        <div class="cover-art">
+            <h1>DANIEL</h1>
+            <p style="font-family: 'Cinzel'; font-size: 14pt; color: var(--gold);">The Hand of God in History</p>
+        </div>
+        <p style="margin-top: 30px;">"Blessed be the name of God for ever and ever: for wisdom and might are his."</p>
+        <p style="font-weight: bold; margin-top: 40px; border: 1px solid var(--red); padding: 10px; display: inline-block;">EVERYONE WELCOME</p>
+        <p style="font-size: 9pt; margin-top: 10px;">Primary Text: King James Version (KJV)</p>
     </div>
-  </div>
+</div>
+
+<div class="no-print" style="text-align:center; color: white; padding: 20px;">
+    <p>Press <strong>Ctrl+P</strong> (or Cmd+P) and set Layout to <strong>Landscape</strong> to print.</p>
+</div>
+
 </body>
 </html>
