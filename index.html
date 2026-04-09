@@ -43,150 +43,147 @@ body {
   box-shadow: 0 4px 15px rgba(122, 24, 24, 0.4);
   border: 2px solid var(--gold);
   transition: 0.3s;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  text-align: center;
+  white-space: nowrap;
 }
 .floating-join:hover {
   background: var(--ink);
   transform: translateX(-50%) translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
 /* --- HERO SECTION --- */
 header {
-  height: 70vh;
+  height: 75vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 20px;
-  border-bottom: 2px solid var(--gold);
+  border-bottom: 3px solid var(--gold);
   position: relative;
   background: var(--parchment-dark);
 }
 
-/* Seal Background */
 .seal-bg {
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 500px; height: 500px;
+  width: 450px; height: 450px;
   background: url('https://img.icons8.com/ios/500/7a1818/wax-seal.png') no-repeat center;
   background-size: contain;
-  opacity: 0.06;
+  opacity: 0.05;
   pointer-events: none;
 }
 
-.hero-title { font-family: 'Cinzel', serif; font-size: 5rem; letter-spacing: 12px; color: var(--ink); z-index: 1; }
-.hero-tag { font-family: 'Cinzel', serif; color: var(--red); letter-spacing: 4px; z-index: 1; }
+.hero-title { font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 8vw, 5rem); letter-spacing: 10px; color: var(--ink); z-index: 1; margin: 15px 0; }
+.hero-tag { font-family: 'Cinzel', serif; color: var(--red); letter-spacing: 4px; z-index: 1; font-weight: bold; }
 
 /* --- CONTENT SECTIONS --- */
 .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
 
 .section-card {
-  background: white;
+  background: rgba(255, 255, 255, 0.6);
   border: 1px solid var(--border);
   padding: 40px;
-  margin-bottom: 40px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  margin-bottom: 50px;
 }
 
-.urgency-grid {
+h2 { font-family: 'Cinzel', serif; color: var(--red); margin-bottom: 30px; text-align: center; font-size: 2rem; }
+
+/* --- GRID LAYOUTS --- */
+.action-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
-  margin-top: 40px;
+  gap: 30px;
 }
 
-.reason-box {
-  padding: 30px;
-  border-top: 3px solid var(--gold);
-  background: rgba(255,255,255,0.5);
-}
-
-.reason-box h3 { font-family: 'Cinzel', serif; color: var(--red); margin-bottom: 15px; }
-
-/* --- CHAPTERS --- */
-.chapter-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-}
-.chapter-card {
-  border: 1px solid var(--border);
-  padding: 25px;
+.action-box {
+  padding: 40px;
   background: white;
+  border: 1px solid var(--gold);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.btn-gold {
+  display: inline-block;
+  padding: 12px 25px;
+  background: var(--gold);
+  color: white;
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  margin-top: 20px;
   transition: 0.3s;
 }
-.chapter-card.locked { opacity: 0.6; background: #f9f9f9; }
-.chapter-card h4 { font-family: 'Cinzel', serif; color: var(--ink); margin-bottom: 10px; }
-.verse { font-style: italic; font-size: 0.9rem; color: #555; margin-top: 15px; border-left: 2px solid var(--gold); padding-left: 10px; }
+.btn-gold:hover { background: var(--ink); }
 
-footer { text-align: center; padding: 60px; border-top: 1px solid var(--gold); background: var(--parchment-dark); }
+footer { text-align: center; padding: 80px 20px; border-top: 1px solid var(--gold); background: var(--parchment-dark); }
 
-@media (max-width: 768px) { .hero-title { font-size: 3rem; } .urgency-grid { grid-template-columns: 1fr; } }
+@media (max-width: 600px) {
+  .floating-join { padding: 10px 20px; font-size: 0.8rem; }
+  .hero-title { letter-spacing: 4px; }
+}
 </style>
 </head>
 <body>
 
 <a href="https://meet.google.com/grv-bvvf-mhw" class="floating-join" target="_blank">
-  <span>CLICK HERE TO JOIN STUDY</span>
+  CLICK TO JOIN STUDY LIVE
 </a>
 
 <header>
   <div class="seal-bg"></div>
   <p class="hero-tag">A Prophetic Investigation</p>
   <h1 class="hero-title">DANIEL</h1>
-  <p style="z-index:1; font-size: 1.2rem; max-width: 600px;">Truth for a generation living in the shadows of eternity.</p>
+  <p style="z-index:1; font-size: 1.3rem; max-width: 650px; font-style: italic;">Understanding the Blueprints of the Future</p>
 </header>
 
 <div class="container">
   
   <div class="section-card">
-    <h2 style="font-family:'Cinzel'; text-align:center; color:var(--red);">Why Join This Study?</h2>
-    <div class="urgency-grid">
-      <div class="reason-box">
-        <h3>1. Wars & Rumours</h3>
-        <p>The global stage is shifting. Bible prophecy explains the underlying currents of today's conflicts, giving us peace instead of fear.</p>
+    <h2>Why This Study?</h2>
+    <div class="action-grid">
+      <div>
+        <h3 style="font-family:'Cinzel'; color:var(--gold); margin-bottom:10px;">Prophetic Clarity</h3>
+        <p>Current events—wars, tensions in Iran, fuel prices, and digital currencies—are not random. We prove the Bible's reliability by connecting history to these difficult times.</p>
       </div>
-      <div class="reason-box">
-        <h3>2. Global Pressures</h3>
-        <p>From Iran to soaring petrol prices and the move toward digital currency—the "difficult times" are here. See what the Bible says about our economy.</p>
-      </div>
-      <div class="reason-box">
-        <h3>3. High Jesus</h3>
-        <p>Prophecy proves the Bible can be trusted. We ground our faith in the sure word of God and lift up Jesus as our only hope.</p>
+      <div>
+        <h3 style="font-family:'Cinzel'; color:var(--gold); margin-bottom:10px;">High Jesus</h3>
+        <p>Our goal is to exalt Jesus Christ as the center of prophecy. By studying Daniel, we see that God is in control of the past, present, and your future.</p>
       </div>
     </div>
   </div>
 
-  <h2 style="font-family:'Cinzel'; margin-bottom: 30px; border-bottom: 2px solid var(--gold); display: inline-block;">The Prophetic Roadmap</h2>
-  <div class="chapter-grid">
-    
-    <div class="chapter-card">
-      <span style="color:var(--gold); font-family:'Cinzel'; font-size: 0.7rem;">🔓 UNLOCKED</span>
-      <h4>Chapter 1: The Test</h4>
-      <p>Four youth face the ultimate test of conscience and health in Babylon.</p>
-      <p class="verse">"But Daniel purposed in his heart that he would not defile himself..." — Daniel 1:8</p>
-      <a href="Daniel_Chapter_1_Study.html" style="color:var(--red); font-weight:bold; text-decoration:none; font-size:0.8rem; display:block; margin-top:10px;">READ STUDY NOTES →</a>
+  <div class="action-grid">
+    <div class="action-box">
+      <div>
+        <h3 style="font-family:'Cinzel';">Study Brochure</h3>
+        <p>Get the full 12-chapter schedule and study details in a printable A4 tri-fold booklet.</p>
+      </div>
+      <a href="Daniel_Study_Brochure.html" class="btn-gold">📄 VIEW BROCHURE</a>
     </div>
 
-    <div class="chapter-card locked">
-      <span style="color:#999; font-family:'Cinzel'; font-size: 0.7rem;">🔒 LOCKED</span>
-      <h4>Chapter 2: The Image</h4>
-      <p>A dream that outlines 2,500 years of history in a single night.</p>
-      <p class="verse">"The God of heaven shall set up a kingdom, which shall never be destroyed." — Daniel 2:44</p>
+    <div class="action-box">
+      <div>
+        <h3 style="font-family:'Cinzel';">Contact Us</h3>
+        <p>Reach out with questions or for help joining the study.</p>
+        <p style="font-weight: bold; margin-top: 15px; color: var(--red);">
+            <a href="mailto:3ampresenttruth@gmail.com" style="color:var(--red); text-decoration:none;">3ampresenttruth@gmail.com</a>
+        </p>
+      </div>
     </div>
+  </div>
 
-    </div>
 </div>
 
 <footer>
-  <p style="font-family:'Cinzel'; color:var(--red);">guidetotruth.github.io/daniel-study/</p>
-  <p style="margin-top: 10px;">Every Monday 7:30 PM NZST | Starting 27 April 2026</p>
-  <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 20px;">Primary Source: King James Version (KJV)</p>
+  <p style="font-family:'Cinzel'; color:var(--red); letter-spacing: 2px;">GUIDETOTRUTH.GITHUB.IO/DANIEL-STUDY/</p>
+  <p style="margin-top: 15px; font-weight: 600;">Starting 27 April 2026 | Mondays 7:30 PM NZST</p>
+  <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 25px;">Primary Text: King James Version (KJV)</p>
 </footer>
 
 </body>
