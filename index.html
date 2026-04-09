@@ -15,7 +15,16 @@
   --ink: #1c140a;
   --border: rgba(201,146,42,0.4);
 }
-
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #fdfaf3 !important; /* Forces the light parchment color */
+    color: #1c140a !important;            /* Forces the dark ink color */
+  }
+  .section-card, .action-box, .chapter-card {
+    background: white !important;
+    color: #1c140a !important;
+  }
+}
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
