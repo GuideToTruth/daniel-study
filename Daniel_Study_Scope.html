@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daniel Bible Study — Full Scope</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:      #080604;
+  --deep:       #130e05;
+  --deep2:      #1c1408;
+  --gold:       #c9922a;
+  --gold-light: #e8b84b;
+  --gold-pale:  #f5e0a8;
+  --red:        #7a1818;
+  --red-dark:   #4a0e0e;
+  --cream:      #f7f0e2;
+  --parchment:  #ede3cc;
+  --ink:        #1c140a;
+  --mid:        #5a3e1b;
+  --green:      #2d5a1b;
+  --green-light:#5a9e3a;
+  --border:     rgba(201,146,42,0.22);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+/* ── HEADER ── */
+.page-header {
+  background: var(--black);
+  color: var(--gold-pale);
+  padding: 52px 28px 42px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.page-header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(122,24,24,.55) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 40% at 50% 100%, rgba(201,146,42,.15) 0%, transparent 60%);
+}
+.header-inner { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; }
+.header-tag {
+  font-family: 'Cinzel', serif;
+  font-size: .68rem;
+  letter-spacing: 5px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.header-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.4rem, 8vw, 5.5rem);
+  font-weight: 900;
+  line-height: .92;
+  color: var(--gold-pale);
+  text-shadow: 0 0 60px rgba(201,146,42,.4), 0 4px 20px rgba(0,0,0,.9);
+  margin-bottom: 6px;
+}
+.header-sub {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(.65rem, 1.5vw, .85rem);
+  letter-spacing: 6px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.gold-rule {
+  width: 100px; height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin: 18px auto;
+}
+.header-desc {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+  color: #d4b070;
+  max-width: 640px;
+  margin: 0 auto 22px;
+  line-height: 1.6;
+}
+.header-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.meta-pill {
+  background: rgba(201,146,42,.13);
+  border: 1px solid rgba(201,146,42,.4);
+  border-radius: 30px;
+  padding: 7px 18px;
+  font-family: 'Cinzel', serif;
+  font-size: .68rem;
+  letter-spacing: 1.5px;
+  color: var(--gold-light);
+}
+
+/* ── OVERVIEW BAND ── */
+.overview-band {
+  background: var(--deep2);
+  padding: 32px 28px;
+  border-bottom: 1px solid var(--border);
+}
+.overview-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+.stat-box {
+  text-align: center;
+  padding: 16px 12px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.03);
+}
+.stat-num {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  display: block;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-label {
+  font-family: 'Cinzel', serif;
+  font-size: .68rem;
+  letter-spacing: 2px;
+  color: #a09060;
+  text-transform: uppercase;
+}
+
+/* ── MAIN LAYOUT ── */
+.page-body {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+
+/* ── PURPOSE SECTION ── */
+.purpose-section {
+  background: var(--black);
+  color: var(--cream);
+  padding: 36px 36px;
+  margin-bottom: 36px;
+  border-left: 4px solid var(--gold);
+}
+.purpose-section h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  color: var(--gold);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.purpose-section p {
+  font-size: 1rem;
+  color: #d4c0a0;
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+.purpose-section p:last-child { margin-bottom: 0; }
+.purpose-section strong { color: var(--gold-light); }
+
+/* ── TWO-COL SECTION ── */
+.two-col-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 36px;
+}
+@media(max-width:640px) { .two-col-section { grid-template-columns: 1fr; } }
+
+.info-card {
+  background: var(--deep);
+  color: var(--cream);
+  padding: 28px 26px;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--gold);
+}
+.info-card h3 {
+  font-family: 'Cinzel', serif;
+  font-size: .82rem;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.info-card ul { padding-left: 18px; }
+.info-card li {
+  margin-bottom: 8px;
+  font-size: .96rem;
+  color: #c8b090;
+  line-height: 1.65;
+}
+.info-card li strong { color: var(--gold-light); }
+
+/* ── CHAPTER SCOPE TABLE ── */
+.scope-section { margin-bottom: 40px; }
+
+.scope-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--mid);
+  padding-bottom: 10px;
+}
+.scope-header h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.scope-header span {
+  font-size: .82rem;
+  color: var(--mid);
+  font-style: italic;
+}
+
+/* Group divider */
+.group-label {
+  font-family: 'Cinzel', serif;
+  font-size: .7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: var(--deep);
+  display: inline-block;
+  padding: 5px 14px;
+  margin: 22px 0 10px;
+  border-left: 3px solid var(--gold);
+}
+
+/* Chapter row */
+.chapter-row {
+  display: grid;
+  grid-template-columns: 52px 200px 1fr 120px;
+  align-items: start;
+  gap: 0;
+  background: white;
+  border: 1px solid #e0d0b0;
+  border-bottom: none;
+  transition: background .15s;
+}
+.chapter-row:last-of-type { border-bottom: 1px solid #e0d0b0; }
+.chapter-row:hover { background: #fdf8ef; }
+
+/* alternating shade */
+.chapter-row:nth-child(even) { background: #faf5ea; }
+.chapter-row:nth-child(even):hover { background: #fdf8ef; }
+
+.col-num {
+  background: var(--deep);
+  color: var(--gold);
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 8px;
+  min-height: 100%;
+  align-self: stretch;
+}
+.col-chapter {
+  padding: 14px 14px;
+  border-right: 1px solid #e0d0b0;
+}
+.col-chapter h4 {
+  font-family: 'Cinzel', serif;
+  font-size: .88rem;
+  color: var(--ink);
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+.col-chapter .ch-title {
+  font-style: italic;
+  font-size: .82rem;
+  color: var(--mid);
+}
+.col-content {
+  padding: 14px 16px;
+  border-right: 1px solid #e0d0b0;
+}
+.col-content .key-verse {
+  font-size: .82rem;
+  color: var(--red);
+  font-style: italic;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.col-content .topics {
+  font-size: .88rem;
+  color: #3a2a0e;
+  line-height: 1.6;
+}
+.col-content .topics strong { color: var(--ink); }
+.col-content .connections {
+  margin-top: 6px;
+  font-size: .8rem;
+  color: #7a6040;
+  font-style: italic;
+}
+.col-status {
+  padding: 14px 12px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 16px;
+}
+.status-badge {
+  font-family: 'Cinzel', serif;
+  font-size: .62rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  text-align: center;
+}
+.sb-current  { background: rgba(201,146,42,.18); border: 1px solid var(--gold);        color: #8a6010; }
+.sb-next     { background: rgba(201,146,42,.1);  border: 1px solid rgba(201,146,42,.4); color: #a07030; }
+.sb-coming   { background: #f0ebe0;              border: 1px solid #c8b898;             color: #8a7050; }
+.sb-prophetic{ background: rgba(122,24,24,.1);   border: 1px solid rgba(122,24,24,.4);  color: var(--red); }
+
+@media(max-width:700px) {
+  .chapter-row { grid-template-columns: 40px 1fr; }
+  .col-chapter { border-right: none; }
+  .col-content { grid-column: 1 / -1; border-right: none; padding-top: 0; }
+  .col-status  { display: none; }
+}
+
+/* ── PROPHETIC KEY SECTION ── */
+.prophetic-section {
+  margin-bottom: 36px;
+  background: var(--deep);
+  border: 1px solid var(--border);
+  padding: 28px 30px;
+  color: var(--cream);
+}
+.prophetic-section h2 {
+  font-family: 'Cinzel', serif;
+  font-size: .88rem;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.prophecy-chain {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  align-items: center;
+}
+.chain-item {
+  background: rgba(255,255,255,.05);
+  border: 1px solid var(--border);
+  padding: 10px 14px;
+  font-size: .88rem;
+  color: #c8b090;
+  text-align: center;
+  min-width: 100px;
+}
+.chain-item strong {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: .82rem;
+  color: var(--gold-light);
+  margin-bottom: 3px;
+}
+.chain-arrow {
+  font-size: 1.2rem;
+  color: var(--gold);
+  padding: 0 6px;
+  flex-shrink: 0;
+}
+@media(max-width:640px) {
+  .prophecy-chain { flex-direction: column; }
+  .chain-arrow { transform: rotate(90deg); }
+}
+
+/* ── HOW IT WORKS SECTION ── */
+.method-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin-bottom: 36px;
+}
+.method-card {
+  background: white;
+  border: 1px solid #e0d0b0;
+  border-top: 3px solid var(--red);
+  padding: 20px 18px;
+}
+.method-card .method-icon {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  display: block;
+}
+.method-card h3 {
+  font-family: 'Cinzel', serif;
+  font-size: .8rem;
+  color: var(--red);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.method-card p { font-size: .9rem; color: #3a2a0e; line-height: 1.65; }
+
+/* ── FOOTER ── */
+.page-footer {
+  background: var(--black);
+  color: #5a4a30;
+  text-align: center;
+  padding: 28px 20px;
+  font-family: 'Cinzel', serif;
+  font-size: .7rem;
+  letter-spacing: 2px;
+  border-top: 1px solid var(--border);
+}
+.page-footer span { color: var(--gold); }
+
+@media print {
+  body { background: white; font-size: 10pt; }
+  .page-header { padding: 24px 20px; }
+  .header-title { font-size: 36pt; }
+  .page-body { padding: 20px; }
+  .chapter-row { page-break-inside: avoid; }
+  @page { size: A4; margin: 14mm; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="page-header">
+  <div class="header-inner">
+    <div class="header-tag">Guide to Truth · Bible Study Series</div>
+    <div class="header-title">DANIEL</div>
+    <div class="header-sub">Complete Study Scope</div>
+    <div class="gold-rule"></div>
+    <p class="header-desc">A chapter-by-chapter journey through one of the most remarkable prophetic books in the entire Bible — from Babylon's captivity to the end of time.</p>
+    <div class="header-meta">
+      <span class="meta-pill">📅 Every Monday · 7:30–8:30 PM NZ</span>
+      <span class="meta-pill">📆 Starting 27 April 2026</span>
+      <span class="meta-pill">🎥 Google Meet · meet.google.com/grv-bvvf-mhw</span>
+      <span class="meta-pill">🆓 Free · All Welcome</span>
+    </div>
+  </div>
+</div>
+
+<!-- OVERVIEW STATS -->
+<div class="overview-band">
+  <div class="overview-inner">
+    <div class="stat-box">
+      <span class="stat-num">12</span>
+      <span class="stat-label">Chapters Covered</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-num">10</span>
+      <span class="stat-label">Study Sessions</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-num">60–90</span>
+      <span class="stat-label">Minutes Per Session</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-num">2,600</span>
+      <span class="stat-label">Years of Prophecy</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-num">0</span>
+      <span class="stat-label">Cost to Attend</span>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN BODY -->
+<div class="page-body">
+
+  <!-- PURPOSE -->
+  <div class="purpose-section">
+    <h2>Purpose of This Study</h2>
+    <p>We live in a world asking urgent questions. Wars and rumours of war. Conflict in the Middle East. The war with Iran. Economic pressure. Nations in turmoil. <strong>These are not random events — they are signs.</strong> And the Book of Daniel was written precisely for people living in times like these.</p>
+    <p>Our goal is simple: <strong>let the Bible interpret itself.</strong> No outside theories, no speculation — just Scripture explaining Scripture, with clear connections to prophecy, history, and the world we live in today. We want every person in this study — whether brand new to the Bible or a lifelong student — to leave with a clearer understanding of where history is heading and the confidence that God is still on the throne.</p>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="method-section">
+    <div class="method-card">
+      <span class="method-icon">📖</span>
+      <h3>Scripture First</h3>
+      <p>We read the passage together. The Bible is the primary source. Everything is grounded in the text.</p>
+    </div>
+    <div class="method-card">
+      <span class="method-icon">🔗</span>
+      <h3>Scripture Interprets Scripture</h3>
+      <p>We use other Bible passages to explain Daniel. The Bible is its own best commentary.</p>
+    </div>
+    <div class="method-card">
+      <span class="method-icon">🌍</span>
+      <h3>Connected to Today</h3>
+      <p>We make clear connections between the prophecies of Daniel and events happening in the world right now.</p>
+    </div>
+    <div class="method-card">
+      <span class="method-icon">💬</span>
+      <h3>Discussion Welcome</h3>
+      <p>Questions encouraged. Every session ends with open discussion. No question is too basic or too deep.</p>
+    </div>
+    <div class="method-card">
+      <span class="method-icon">📄</span>
+      <h3>Study Notes Provided</h3>
+      <p>Downloadable notes for every session available at guidetotruth.github.io/daniel-study before each study.</p>
+    </div>
+    <div class="method-card">
+      <span class="method-icon">🎯</span>
+      <h3>For Everyone</h3>
+      <p>Designed for complete beginners and experienced Bible students alike. Come once or every week.</p>
+    </div>
+  </div>
+
+  <!-- TWO COL INFO -->
+  <div class="two-col-section">
+    <div class="info-card">
+      <h3>Who Should Attend</h3>
+      <ul>
+        <li>Complete beginners — no Bible knowledge needed</li>
+        <li>Long-time Christians who want to go deeper</li>
+        <li>People with questions about current world events</li>
+        <li>Anyone who wants to understand Bible prophecy</li>
+        <li>Those asking: <em>what does the future hold?</em></li>
+        <li>People who want to be prepared and not deceived</li>
+        <li><strong>You — wherever you are on the journey</strong></li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>What You Will Need</h3>
+      <ul>
+        <li>A Bible — any translation is fine (KJV recommended for Daniel)</li>
+        <li>A device with internet — phone, tablet, or laptop</li>
+        <li>The Google Meet link: <strong>meet.google.com/grv-bvvf-mhw</strong></li>
+        <li>Study notes — downloaded free from the website</li>
+        <li>An open heart and a willingness to let the Bible speak</li>
+        <li><strong>No registration required · No cost · Just join</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CHAPTER SCOPE -->
+  <div class="scope-section">
+    <div class="scope-header">
+      <h2>Chapter-by-Chapter Scope</h2>
+      <span>Complete Book of Daniel · 12 Chapters · 10 Sessions</span>
+    </div>
+
+    <!-- GROUP 1: HISTORICAL -->
+    <div class="group-label">Part 1 — The Historical Chapters · Daniel 1–6</div>
+    <p style="font-size:.9rem;color:var(--mid);font-style:italic;margin-bottom:12px;">These chapters tell the story of Daniel and his friends living faithfully in a foreign empire. Each story is also a prophetic type — a picture of God's people in the last days.</p>
+
+    <div class="chapter-row">
+      <div class="col-num">1</div>
+      <div class="col-chapter">
+        <h4>Daniel 1</h4>
+        <div class="ch-title">Faith Under Fire in Babylon</div>
+      </div>
+      <div class="col-content">
+        <div class="key-verse">Key verse: Daniel 1:8 — "But Daniel purposed in his heart…"</div>
+        <div class="topics">
+          The Babylonian captivity. Nebuchadnezzar's identity programme — changing names, diet, and education.
+          Daniel's decision to remain faithful. The 10-day test. God honours those who honour Him.
+          <strong>God gives Daniel understanding in visions and dreams</strong> — the gift that carries the whole book.
+        </div>
+        <div class="connections">Connects to: Lev. 11 · Jer. 25:11 · Rev. 13–14 · Matt. 4:4</div>
+      </div>
+      <div class="col-status"><span class="status-badge sb-current">▶ Session 1</span></div>
+    </div>
+
+    <div class="chapter-row">
+      <div class="col-num">2</div>
+      <div class="col-chapter">
+        <h4>Daniel 2</h4>
+        <div class="ch-title">The Dream That Mapped World History</div>
+      </div>
+      <div class="col-content">
+        <div class="key-verse">Key verse: Daniel 2:44 — "And in the days of these kings shall the God of heaven set up a kingdom…"</div>
+        <div class="topics">
+          Nebuchadnezzar's great image. <strong>Gold (Babylon) · Silver (Persia) · Bronze (Greece) · Iron (Rome) · Iron and clay (divided Europe).</strong>
+          The stone not cut by human hands — God's eternal Kingdom. The most accessible prophetic overview in Scripture.
+          This chapter is the master key to all prophetic chapters that follow.
+        </div>
+        <div class="connections">Connects to: Dan. 7 · Dan. 8 · Rev. 17 · Matt. 21:44</div>
+      </div>
+      <div class="col-status"><span class="status-badge sb-next">Session 2</span></div>
+    </div>
+
+    <div class="chapter-row">
+      <div class="col-num">3</div>
+      <div class="col-chapter">
+        <h4>Daniel 3</h4>
+        <div class="ch-title">The Fiery Furnace</div>
+      </div>
+      <div class="col-content">
+        <div class="key-verse">Key verse: Daniel 3:17–18 — "Our God whom we serve is able to deliver us… but if not…"</div>
+        <div class="topics">
+          Nebuchadnezzar builds a golden image — the same dimensions as the image of Dan. 2, but all gold.
+          The empire-wide worship decree. Three men who refuse to bow.
+          <strong>The fourth man in the fire.</strong> Faith that does not negotiate even under a death sentence.
+          Type of the final Sunday law and end-time worship decree.
+        </div>
+        <div class="connections">Connects to: Rev. 13:15 · Rev. 14:9–11 · Ex. 20:3–5</div>
+      </div>
+      <div class="col-status"><span class="status-badge sb-coming">Session 3</span></div>
+    </div>
+
+    <div class="chapter-row">
+      <div class="col-num">4</div>
+      <div class="col-chapter">
+        <h4>Daniel 4</h4>
+        <div class="ch-title">Nebuchadnezzar's Humbling</div>
+      </div>
+      <div class="col-content">
+        <div class="key-verse">Key verse: Daniel 4:37 — "Those that walk in pride He is able to abase."</div>
+        <div class="topics">
+          The great tree dream. Pride and its consequences. Seven times of madness.
+          <strong>The most powerful man on earth brought to his knees.</strong>
+          Nebuchadnezzar's eventual acknowledgment of God. The lesson that God rules in the kingdom of men.
+          A warning to all earthly powers — relevant to the pride of modern nations.
+        </div>
+        <div class="connections">Connects to: Prov. 16:18 · Isa. 14:12–15 · Rev. 18:7</div>
+      </div>
+      <div class="col-status"><span class="status-badge sb-coming">Session 4</span></div>
+    </div>
+
+    <div class="chapter-row">
+      <div class="col-num">5</div>
+      <div class="col-chapter">
+        <h4>Daniel 5</h4>
+        <div class="ch-title">The Handwriting on the Wall</div>
+      </div>
+      <div class="col-content">
+        <div class="key-verse">Key verse: Daniel 5:27 — "Tekel; Thou art weighed in the balances, and art found wanting."</div>
+        <div class="topics">
+          Belshazzar's feast. The desecration of the temple vessels.
+          The mysterious hand writing: <strong>MENE MENE TEKEL UPHARSIN.</strong>
+          Daniel's courage to speak truth to power. Babylon falls that very night to the Medes and Persians.
+          The transition from Babylon to Persia — exactly as Daniel 2 predicted.
+        </div>
+        <div class="connections">Connects to: Isa. 21:9 · Dan. 2:39 · Rev. 18:2</div>
+      </div>
+      <div class="col-status"><span class="status-badge sb-coming">Session 4</span></div>
+    </div>
+
+    <div class="chapter-row">
+      <div class="col-num">6</div>
+      <div class="col-chapter">
+        <h4>Daniel 6</h4>
+        <div class="ch-title">The Lions' Den</div>
+      </div>
+      <div class="col-content">
+        <div class="key-verse">Key verse: Daniel 6:10 — "…he kneeled upon his knees three times a day, and prayed…"</div>
+        <div class="topics">
+          Daniel's prayer life — the foundation of his faithfulness. The empire-wide prayer ban.
+          The trap set by his enemies. <strong>Daniel's habit of prayer does not change when it becomes illegal.</strong>
+          The lions' mouths shut. Darius's decree. Type of the end-time Sunday law and the remnant who keep the Sabbath.
+        </div>
+        <div class="connections">Connects to: Rev. 13:16–17 · Acts 5:29 · Ps. 55:17</div>
+      </div>
+      <div class="col-status"><span class="status-badge sb-coming">Session 5</span></div>
+    </div>
+
+    <!-- GROUP 2: PROPHETIC -->
+    <div class="group-label">Part 2 — The Prophetic Chapters · Daniel 7–12</div>
+    <p style="font-size:.9rem;color:var(--mid);font-style:italic;margin-bottom:12px;">These chapters contain the major prophetic visions of Daniel. They cover the same ground as chapters 1–6 but go deeper — revealing the judgment, the sanctuary, the Messiah, the great controversy, and the time of the end.</p>
+
+    <div class="chapter-row">
+      <div class="col-num">7</div>
+      <div class="col-chapter">
+        <h4>Daniel 7</h4>
+        <div class="ch-title">The Judgment Scene in Heaven</div>
+      </div>
+      <div class="col-content">
+        <div class="key-verse">Key verse: Daniel 7:9–10 — "I beheld till the thrones were cast down, and the Ancient of Days did sit…"</div>
+        <div class="topics">
+          Four beasts = same four kingdoms as Daniel 2 but with more detail.
+          <strong>The little horn power — its identity and timeline.</strong> The pre-Advent judgment (investigative judgment).
+          The Ancient of Days takes His seat. The Son of Man brought before Him.
+          The saints receive the Kingdom. <strong>The 1844 connection begins here.</strong>
+        </div>
+        <div class="connections">Connects to: Dan. 2 · Dan. 8 · Rev. 13 · Heb. 8:1–2 · Rev. 14:6–7</div>
+      </div>
+      <div class="col-status"><span class="status-badge sb-prophetic">Session 6</span></div>
+    </div>
+
+    <div class="chapter-row">
+      <div class="col-num">8</div>
+      <div class="col-chapter">
+        <h4>Daniel 8</h4>
+        <div class="ch-title">The 2,300-Day Prophecy</div>
+      </div>
+      <div class="col-content">
+        <div class="key-verse">Key verse: Daniel 8:14 — "Unto two thousand and three hundred days; then shall the sanctuary be cleansed."</div>
+        <div class="topics">
+          Ram (Persia) · Goat (Greece) · Little horn (Rome, both pagan and papal).
+          The casting down of the sanctuary. <strong>The longest time prophecy in all of Scripture — 2,300 prophetic days.</strong>
+          Daniel is overwhelmed and the vision is sealed. The answer to "when?" is given in Daniel 9.
+        </div>
+        <div class="connections">Connects to: Dan. 9 · Num. 14:34 · Ezek. 4:6 · Heb. 9:23</div>
+      </div>
+      <div class="col-status"><span class="status-badge sb-prophetic">Session 7</span></div>
+    </div>
+
+    <div class="chapter-row">
+      <div class="col-num">9</div>
+      <div class="col-chapter">
+        <h4>Daniel 9</h4>
+        <div class="ch-title">The 70 Weeks and the Messiah</div>
+      </div>
+      <div class="col-content">
+        <div class="key-verse">Key verse: Daniel 9:25 — "Know therefore and understand, that from the going forth of the commandment to restore… unto the Messiah the Prince shall be seven weeks…"</div>
+        <div class="topics">
+          Daniel's prayer of repentance. Gabriel's answer: <strong>70 weeks (490 years) are cut off from the 2,300 days.</strong>
+          Starting point: 457 BC decree of Artaxerxes. Pinpoints Christ's baptism (27 AD) and crucifixion (31 AD) with stunning precision.
+          The confirming of the covenant. The end of the 490 years (34 AD). <strong>The key that unlocks Daniel 8.</strong>
+        </div>
+        <div class="connections">Connects to: Dan. 8:14 · Ezra 7 · Matt. 3:13–17 · Luke 3:1 · Gal. 3:16–17</div>
+      </div>
+      <div class="col-status"><span class="status-badge sb-prophetic">Session 8</span></div>
+    </div>
+
+    <div class="chapter-row">
+      <div class="col-num">10</div>
+      <div class="col-chapter">
+        <h4>Daniel 10</h4>
+        <div class="ch-title">The Great Controversy Backdrop</div>
+      </div>
+      <div class="col-content">
+        <div class="key-verse">Key verse: Daniel 10:13 — "But the prince of the kingdom of Persia withstood me one and twenty days… but, lo, Michael, one of the chief princes, came to help me."</div>
+        <div class="topics">
+          Daniel's 21 days of fasting and prayer. The heavenly messenger delayed by spiritual conflict.
+          <strong>Michael (Christ) comes to help.</strong> A glimpse behind the curtain of history — the real battle is spiritual.
+          Sets the context for the great controversy between Christ and Satan across chapters 11–12.
+        </div>
+        <div class="connections">Connects to: Eph. 6:12 · Rev. 12:7 · Jude 9 · 1 Thess. 4:16</div>
+      </div>
+      <div class="col-status"><span class="status-badge sb-prophetic">Session 9</span></div>
+    </div>
+
+    <div class="chapter-row">
+      <div class="col-num">11</div>
+      <div class="col-chapter">
+        <h4>Daniel 11</h4>
+        <div class="ch-title">Kings of the North and South</div>
+      </div>
+      <div class="col-content">
+        <div class="key-verse">Key verse: Daniel 11:45 — "And he shall plant the tabernacles of his palace… yet he shall come to his end, and none shall help him."</div>
+        <div class="topics">
+          The most detailed prophetic chapter in the Bible. Persia, Greece, Rome, and the divided powers.
+          <strong>The king of the North and the king of the South</strong> — a centuries-long conflict that reaches into our time.
+          Papal Rome, the time of the end, and the final movements. Connects directly to current geopolitical events.
+        </div>
+        <div class="connections">Connects to: Dan. 7 · Dan. 8 · Rev. 16 · 2 Thess. 2:3–4</div>
+      </div>
+      <div class="col-status"><span class="status-badge sb-prophetic">Session 9</span></div>
+    </div>
+
+    <div class="chapter-row">
+      <div class="col-num">12</div>
+      <div class="col-chapter">
+        <h4>Daniel 12</h4>
+        <div class="ch-title">The Time of the End</div>
+      </div>
+      <div class="col-content">
+        <div class="key-verse">Key verse: Daniel 12:1 — "And at that time shall Michael stand up… and there shall be a time of trouble, such as never was…"</div>
+        <div class="topics">
+          Michael stands up. The great time of trouble. <strong>Every one whose name is written in the book shall be delivered.</strong>
+          The resurrection promise. Two more time prophecies: 1,260 · 1,290 · 1,335 days. The book sealed until the time of the end.
+          <strong>"Blessed is he that waiteth" — the final note of hope.</strong>
+        </div>
+        <div class="connections">Connects to: Rev. 3:5 · 1 Thess. 4:16–17 · Matt. 24:21 · Rev. 22:11–12</div>
+      </div>
+      <div class="col-status"><span class="status-badge sb-prophetic">Session 10</span></div>
+    </div>
+  </div>
+
+  <!-- PROPHETIC CHAIN -->
+  <div class="prophetic-section">
+    <h2>The Prophetic Chain — How the Chapters Connect</h2>
+    <p style="font-size:.9rem;color:#c8b090;margin-bottom:16px;">Daniel's prophetic chapters are not isolated visions. They build on each other like a chain, each one adding detail to the one before.</p>
+    <div class="prophecy-chain">
+      <div class="chain-item"><strong>Dan. 2</strong>The overview — 4 kingdoms + God's Kingdom</div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item"><strong>Dan. 7</strong>Same kingdoms + adds the little horn + the judgment</div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item"><strong>Dan. 8</strong>Focuses on the little horn + 2,300 days</div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item"><strong>Dan. 9</strong>Unlocks 2,300 days with 70-week key + Messiah's timeline</div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item"><strong>Dan. 10–12</strong>The great controversy + detailed end-time events + resurrection</div>
+    </div>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="two-col-section">
+    <div class="info-card">
+      <h3>Sources We Use</h3>
+      <ul>
+        <li><strong>The Holy Bible</strong> — primary source (KJV)</li>
+        <li><strong>SDA Bible Commentary</strong> Vol. 4 — Daniel</li>
+        <li><strong>Ellen G. White</strong> — Prophets &amp; Kings, The Great Controversy, Education</li>
+        <li><strong>Vance Ferrell</strong> — The Great Prophecies of Daniel and Revelation</li>
+        <li><strong>Review and Herald</strong> — SDA historical resources</li>
+        <li>SDA Church Archives and official positions</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>Session Format</h3>
+      <ul>
+        <li><strong>Opening prayer</strong> — 2 minutes</li>
+        <li><strong>Reading the passage together</strong> — 10 minutes</li>
+        <li><strong>Teaching through the study notes</strong> — 35–45 minutes</li>
+        <li><strong>Connections to prophecy and today's world</strong> — 10 minutes</li>
+        <li><strong>Discussion questions</strong> — 10–15 minutes</li>
+        <li><strong>Closing prayer</strong> — 2 minutes</li>
+      </ul>
+    </div>
+  </div>
+
+</div><!-- end page-body -->
+
+<!-- FOOTER -->
+<div class="page-footer">
+  <p>Daniel Bible Study · Every Monday · 7:30–8:30 PM NZ · <span>meet.google.com/grv-bvvf-mhw</span></p>
+  <p style="margin-top:8px;"><span>3ampresenttruth@gmail.com</span> · guidetotruth.github.io/daniel-study · Starting 27 April 2026 · Free · All Welcome</p>
+</div>
+
+</body>
+</html>
